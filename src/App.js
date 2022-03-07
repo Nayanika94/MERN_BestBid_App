@@ -9,7 +9,7 @@ import { NoMatch } from "./pages/NoMatch";
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 import { Product } from "./pages/Product";
-import { Jumbotron } from "./components/Jumbotron";
+
 import Footer from "./components/Footer";
 import "./App.css";
 import { Product_List } from "./pages/Product_List";
@@ -20,7 +20,7 @@ class App extends Component {
       <React.Fragment>
         <Router>
           <NavigationBar />
-          <Jumbotron />
+
           <Layout>
             <Switch>
               <Route exact path="/" component={Home} />

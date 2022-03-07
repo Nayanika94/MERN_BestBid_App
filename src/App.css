@@ -169,3 +169,7 @@ li a:hover:not(.active) {
   text-indent: 15%;
   text-justify: inter-word;
 }
+
+.breadcrumb-item a {
+  display: contents;
+}
