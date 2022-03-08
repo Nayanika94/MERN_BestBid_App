@@ -1,6 +1,6 @@
 import React from "react";
 import product from "../assets/starryNight.jpg";
-import { Button, Breadcrumb } from "react-bootstrap";
+import { Breadcrumb } from "react-bootstrap";
 
 export const Product = () => {
   return (
