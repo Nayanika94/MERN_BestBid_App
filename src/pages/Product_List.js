@@ -2,6 +2,10 @@ import React from "react";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import { Button, Breadcrumb, Row, Col } from "react-bootstrap";
+import image1 from "../assets/starryNight.jpg";
+import image2 from "../assets/starryNight.jpg";
+import image3 from "../assets/starryNight.jpg";
+import product from "../assets/starryNight.jpg";
 import starryNight from "../assets/starryNight.jpg";
 
 const styles = {
@@ -31,108 +35,6 @@ export const Product_List = () => (
       <Breadcrumb.Item active>Data</Breadcrumb.Item>
     </Breadcrumb>
     <div class="container">
-      <Row xs={1} md={2} className="g-4">
-        {Array.from({ length: 12 }).map((_, idx) => (
-          <Col sm={3}>
-            <Card className="m-2" style={styles.card}>
-              <Card.Img
-                variant="top"
-                src={starryNight}
-                style={styles.cardImage}
-              />
-              <Card.Body>
-                <Card.Text>Starry Night painting</Card.Text>
-                <Card.Title>C$30000.00</Card.Title>
-              </Card.Body>
-              <div className="mb-2">
-                <Button variant="success" size="sm">
-                  Place Bid
-                </Button>{" "}
-                <Button variant="warning" size="sm">
-                  Buy Now
-                </Button>
-              </div>
-              <Card.Footer>
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </Card.Footer>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      {/* <CardGroup className="mb-4">
-        <Card className="m-2" style={styles.card}>
-          <Card.Img variant="top" src={starryNight} style={styles.cardImage} />
-          <Card.Body>
-            <Card.Text>Starry Night painting</Card.Text>
-            <Card.Title>C$30000.00</Card.Title>
-          </Card.Body>
-          <div className="mb-2">
-            <Button variant="success" size="sm">
-              Place Bid
-            </Button>{" "}
-            <Button variant="warning" size="sm">
-              Buy Now
-            </Button>
-          </div>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card className="m-2" style={styles.card}>
-          <Card.Img variant="top" src={image1} style={styles.cardImage} />
-          <Card.Body>
-            <Card.Text>ABC</Card.Text>
-            <Card.Title>C$20000.00</Card.Title>
-          </Card.Body>
-          <div className="mb-2">
-            <Button variant="success" size="sm">
-              Place Bid
-            </Button>{" "}
-            <Button variant="warning" size="sm">
-              Buy Now
-            </Button>
-          </div>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card className="m-2" style={styles.card}>
-          <Card.Img variant="top" src={image3} style={styles.cardImage} />
-          <Card.Body>
-            <Card.Text>ABC</Card.Text>
-            <Card.Title>C$150.00</Card.Title>
-          </Card.Body>
-          <div className="mb-2">
-            <Button variant="success" size="sm">
-              Place Bid
-            </Button>{" "}
-            <Button variant="warning" size="sm">
-              Buy Now
-            </Button>
-          </div>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-        <Card className="m-2" style={styles.card}>
-          <Card.Img variant="top" src={starryNight} style={styles.cardImage} />
-          <Card.Body>
-            <Card.Text>Starry Night painting</Card.Text>
-            <Card.Title>C$30000.00</Card.Title>
-          </Card.Body>
-          <div className="mb-2">
-            <Button variant="success" size="sm">
-              Place Bid
-            </Button>{" "}
-            <Button variant="warning" size="sm">
-              Buy Now
-            </Button>
-          </div>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-      </CardGroup>
       <CardGroup className="mb-4">
         <Card className="m-2" style={styles.card}>
           <Card.Img variant="top" src={starryNight} style={styles.cardImage} />
@@ -280,7 +182,81 @@ export const Product_List = () => (
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
-      </CardGroup> */}
+      </CardGroup>
+      <CardGroup className="mb-4">
+        <Card className="m-2" style={styles.card}>
+          <Card.Img variant="top" src={starryNight} style={styles.cardImage} />
+          <Card.Body>
+            <Card.Text>Starry Night painting</Card.Text>
+            <Card.Title>C$30000.00</Card.Title>
+          </Card.Body>
+          <div className="mb-2">
+            <Button variant="success" size="sm">
+              Place Bid
+            </Button>{" "}
+            <Button variant="warning" size="sm">
+              Buy Now
+            </Button>
+          </div>
+          <Card.Footer>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+        <Card className="m-2" style={styles.card}>
+          <Card.Img variant="top" src={image1} style={styles.cardImage} />
+          <Card.Body>
+            <Card.Text>ABC</Card.Text>
+            <Card.Title>C$20000.00</Card.Title>
+          </Card.Body>
+          <div className="mb-2">
+            <Button variant="success" size="sm">
+              Place Bid
+            </Button>{" "}
+            <Button variant="warning" size="sm">
+              Buy Now
+            </Button>
+          </div>
+          <Card.Footer>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+        <Card className="m-2" style={styles.card}>
+          <Card.Img variant="top" src={image3} style={styles.cardImage} />
+          <Card.Body>
+            <Card.Text>ABC</Card.Text>
+            <Card.Title>C$150.00</Card.Title>
+          </Card.Body>
+          <div className="mb-2">
+            <Button variant="success" size="sm">
+              Place Bid
+            </Button>{" "}
+            <Button variant="warning" size="sm">
+              Buy Now
+            </Button>
+          </div>
+          <Card.Footer>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+        <Card className="m-2" style={styles.card}>
+          <Card.Img variant="top" src={starryNight} style={styles.cardImage} />
+          <Card.Body>
+            <Card.Text>Starry Night painting</Card.Text>
+            <Card.Title>C$30000.00</Card.Title>
+          </Card.Body>
+          <div className="mb-2">
+            <Button variant="success" size="sm">
+              Place Bid
+            </Button>{" "}
+            <Button variant="warning" size="sm">
+              Buy Now
+            </Button>
+          </div>
+          <Card.Footer>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+      </CardGroup>
     </div>
   </div>
 );
