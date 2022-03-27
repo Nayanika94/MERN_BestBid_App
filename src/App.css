@@ -193,7 +193,7 @@ section {
 section .leftBox {
   width: 50%;
   height: 100%;
-  background-image: url("./assets/bestbid.jpg");
+  background-image: url("bidding.jpg");
   background-repeat: no-repeat;
   float: left;
   padding: 50px;
@@ -204,7 +204,7 @@ section .leftBox {
 /* Styling the background of
   left floating section */
 section .leftBox .content {
-  /* background-image: url("virtualfair.jpg"); */
+  background-image: url("virtualfair.jpg");
   background-repeat: no-repeat;
   height: 100%;
   color: #fff;
