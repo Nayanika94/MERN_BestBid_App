@@ -1,2 +1,7 @@
 import React from "react";
-export const Layout = (props) => <div class="pt-2">{props.children}</div>;
+
+const Layout = (props) => {
+  return <div class="pt-2">{props.children}</div>;
+};
+
+export default Layout;

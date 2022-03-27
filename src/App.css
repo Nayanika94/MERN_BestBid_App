@@ -174,12 +174,10 @@ li a:hover:not(.active) {
   display: contents;
 }
 
-
 /**Dhanushi **/
 
-
- /* Styling the body */
- body {
+/* Styling the body */
+body {
   margin: 0;
   padding: 0;
 }
@@ -189,14 +187,13 @@ li a:hover:not(.active) {
 section {
   width: 100%;
   height: 100vh;
- 
 }
 
 /* Styling the left floating section */
 section .leftBox {
   width: 50%;
   height: 100%;
-  background-image: url("bidding.jpg");
+  background-image: url("./assets/bestbid.jpg");
   background-repeat: no-repeat;
   float: left;
   padding: 50px;
@@ -207,13 +204,13 @@ section .leftBox {
 /* Styling the background of
   left floating section */
 section .leftBox .content {
-  background-image: url("virtualfair.jpg");
+  /* background-image: url("virtualfair.jpg"); */
   background-repeat: no-repeat;
   height: 100%;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
-   padding: 40px;
-  transition: .5s;
+  padding: 40px;
+  transition: 0.5s;
 }
 
 /* Styling the hover effect 
@@ -278,7 +275,7 @@ section .events ul li .time {
   height: 100%;
   float: left;
   text-align: center;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 /* Styling the hover effect
@@ -345,7 +342,7 @@ section .events ul li .details a {
   border: 1.5px solid #262626;
   margin-top: 8px;
   font-size: 18px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 /* Styling the details class's hover effect */

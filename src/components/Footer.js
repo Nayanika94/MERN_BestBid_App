@@ -37,9 +37,10 @@ const Footer = () => {
             <div className="col-md-6 item text">
               <h3>Best Bid</h3>
               <p>
-                Bidding is an offer (often competitive) to set a price tag by an individual
-                or business for a product or service or a demand that something be done.
-                Bidding is used to determine the cost or value of something.
+                Bidding is an offer (often competitive) to set a price tag by an
+                individual or business for a product or service or a demand that
+                something be done. Bidding is used to determine the cost or
+                value of something.
               </p>
             </div>
             <div className="col item social">

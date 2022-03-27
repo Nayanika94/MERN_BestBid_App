@@ -2,7 +2,7 @@ import React from "react";
 import product from "../assets/starryNight.jpg";
 import { Breadcrumb } from "react-bootstrap";
 
-export const Product = () => {
+const Product = () => {
   return (
     <div class="container">
       <Breadcrumb>
@@ -54,3 +54,5 @@ export const Product = () => {
     </div>
   );
 };
+
+export default Product;

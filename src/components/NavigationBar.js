@@ -19,7 +19,7 @@ const Styles = styled.div`
   }
 `;
 
-export const NavigationBar = () => (
+const NavigationBar = () => (
   <Styles>
     <Navbar expand="lg">
       <Navbar.Brand href="/">Best Bid</Navbar.Brand>
@@ -27,8 +27,8 @@ export const NavigationBar = () => (
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/">Home</Link>
+            <Nav.Link as={Link} to="/">
+              Home
             </Nav.Link>
           </Nav.Item>
           <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -38,48 +38,48 @@ export const NavigationBar = () => (
             <NavDropdown.Item href="/">Separated link</NavDropdown.Item>
           </NavDropdown>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/product-list">List Products</Link>
+            <Nav.Link as={Link} to="/product-list">
+              List Products
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/product">Products</Link>
+            <Nav.Link as={Link} to="/product">
+              Products
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/about">About</Link>
+            <Nav.Link as={Link} to="/about">
+              About
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/faq">FAQ</Link>
+            <Nav.Link as={Link} to="/faq">
+              FAQ
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/contact">Contact</Link>
+            <Nav.Link as={Link} to="/contact">
+              Contact
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/login">Login</Link>
+            <Nav.Link as={Link} to="/login">
+              Login
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/register">Register</Link>
+            <Nav.Link as={Link} to="/register">
+              Register
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/profile">Profile</Link>
+            <Nav.Link as={Link} to="/profile">
+              Profile
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/payment">Payment</Link>
+            <Nav.Link as={Link} to="/payment">
+              Payment
             </Nav.Link>
           </Nav.Item>
         </Nav>
@@ -87,3 +87,5 @@ export const NavigationBar = () => (
     </Navbar>
   </Styles>
 );
+
+export default NavigationBar;
