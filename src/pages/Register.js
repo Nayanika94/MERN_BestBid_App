@@ -24,13 +24,14 @@ export const Register = () => {
 
     let config = {
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
     };
-    const data = new FormData();
-    data.append("email", email);
-    data.append("username", username);
-    data.append("password", password);
+    let data = {
+      email: email,
+      username: username,
+      password: password,
+    };
     console.log(data);
     try {
       const response = await axios.post(
@@ -42,8 +43,7 @@ export const Register = () => {
       console.log(response);
       localStorage.setItem("token", response.data.token);
       console.log(decode(response.data.token));
-      auth.login();
-      navigate("/todos");
+      navigate("/login");
     } catch (err) {
       console.log(err);
     }
@@ -60,6 +60,7 @@ export const Register = () => {
             className="form-control"
             placeholder="Enter username"
             name="username"
+            value={username}
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -71,6 +72,7 @@ export const Register = () => {
             className="form-control"
             placeholder="Enter email"
             name="email"
+            value={email}
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -82,6 +84,7 @@ export const Register = () => {
             className="form-control"
             placeholder="Enter password"
             name="password"
+            value={password}
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -93,6 +96,7 @@ export const Register = () => {
             className="form-control"
             placeholder="Enter confirm password"
             name="confirmPassword"
+            value={confirmPassword}
             onChange={(e) => onChange(e)}
           />
         </div>
