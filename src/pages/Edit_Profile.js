@@ -43,9 +43,6 @@ const Edit_Profile = () => {
         config
       );
 
-      console.log(response);
-      localStorage.setItem("token", response.data.token);
-      console.log(decode(response.data.token));
       navigate("/profile");
     } catch (err) {
       console.log(err);

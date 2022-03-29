@@ -59,21 +59,16 @@ const NavigationBar = () => {
                 Contact
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link as={Link} to="/profile">
-                Profile
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
-            </Nav.Item>
+            {auth.isLoggedIn && (
+              <Nav.Item>
+                <Nav.Link as={Link} to="/profile">
+                  Profile
+                </Nav.Link>
+              </Nav.Item>
+            )}
             {auth.isLoggedIn ? (
               <Nav.Item>
-                <Nav.Link as={Link} to={auth.logout}>
-                  Logout
-                </Nav.Link>
+                <Nav.Link onClick={auth.logout}>Logout</Nav.Link>
               </Nav.Item>
             ) : (
               <Nav.Item>
