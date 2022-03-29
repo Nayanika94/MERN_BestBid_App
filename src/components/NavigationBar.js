@@ -31,12 +31,6 @@ const NavigationBar = () => (
               Home
             </Nav.Link>
           </Nav.Item>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/">Action</NavDropdown.Item>
-            <NavDropdown.Item href="/">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="/">Something</NavDropdown.Item>
-            <NavDropdown.Item href="/">Separated link</NavDropdown.Item>
-          </NavDropdown>
           <Nav.Item>
             <Nav.Link as={Link} to="/product-list">
               List Products

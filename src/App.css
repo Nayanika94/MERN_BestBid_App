@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -350,4 +352,30 @@ section .events ul li .details a:hover {
   background: #e91e63;
   color: #fff;
   border-color: #e91e63;
+}
+
+
+/* Home Page CSS */
+.bg-image{
+    background-image: url("../src/assets/bestbid.jpg");
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.bg-text{
+  z-index: 10;
+  opacity: 10;
+}
+
+.sub-topic{
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  background-color: black;
 }
