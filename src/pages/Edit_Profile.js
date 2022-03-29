@@ -7,23 +7,21 @@ import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
 
 const Edit_Profile = () => {
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-  const [formData2, setFromDate] = useState({
-    email: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const { email, username, password, confirmPassword } = formData2;
+  const { name, email, phone, address } = profile;
 
   const onChange = (e) => {
-    setFromDate({ ...formData2, [e.target.name]: e.target.value });
+    setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
   let decodeddata = decode(localStorage.getItem("token"));
-  let imagepath = decodeddata.user.profileImage;
   useEffect(() => {
     sendGetRequest();
   }, []);
@@ -31,28 +29,24 @@ const Edit_Profile = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    let token = localStorage.getItem("token");
     let config = {
       headers: {
         "Content-Type": "application/json",
+        "x-auth-token": token,
       },
     };
-    let data = {
-      email: email,
-      username: username,
-      password: password,
-    };
-    console.log(data);
     try {
-      const response = await axios.post(
+      const response = await axios.put(
         "http://localhost:5000/api/user",
-        data,
+        profile,
         config
       );
 
       console.log(response);
       localStorage.setItem("token", response.data.token);
       console.log(decode(response.data.token));
-      navigate("/login");
+      navigate("/profile");
     } catch (err) {
       console.log(err);
     }

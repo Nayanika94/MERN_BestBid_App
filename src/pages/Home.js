@@ -3,40 +3,9 @@ import styled from "styled-components";
 import bestbid from "../assets/bestbid.jpg";
 import { Button } from "react-bootstrap";
 
-const Styles = styled.div`
-  .jumbo {
-    background: url(${bestbid}) no-repeat fixed bottom;
-    background-size: cover;
-    color: #efefef;
-    position: relative;
-    z-index: -2;
-  }
-
-  .overlay {
-    background-color: #000;
-    opacity: 0.6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-  }
-`;
-
 const Home = () => {
   return (
     <div>
-      <div>
-        <h1>Hello, world!</h1>
-        <p>
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.
-        </p>
-        <p>
-          <Button bsStyle="primary">Learn more</Button>
-        </p>
-      </div>
       <div class="container">
         <h2>Hello World</h2>
         <p>
