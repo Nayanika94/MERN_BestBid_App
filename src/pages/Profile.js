@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Breadcrumb, Card, Button, Row, Col, Tabs, Tab } from "react-bootstrap";
 import image1 from "../assets/image1.jpg";
+import decode from "jwt-decode";
+import axios from "axios";
 
 const Profile = () => {
+  const [profile, setProfile] = useState([]);
+
+  let decodeddata = decode(localStorage.getItem("token"));
+  let imagepath = decodeddata.user.profileImage;
+  useEffect(() => {
+    sendGetRequest();
+  }, []);
+
+  const sendGetRequest = async () => {
+    try {
+      let token = localStorage.getItem("token");
+
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": token,
+        },
+      };
+      const response = await axios.get(
+        "http://localhost:5000/api/auth?",
+        config
+      );
+      setProfile(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div class="container mt-2 mb-2">
       <Breadcrumb>
@@ -16,7 +45,7 @@ const Profile = () => {
           <Card>
             <Card.Img variant="top" src={image1} />
             <Card.Body>
-              <Card.Title>Jack Sand</Card.Title>
+              <Card.Title>{profile.username}</Card.Title>
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -24,7 +53,9 @@ const Profile = () => {
               <Button variant="primary" className="mr-2">
                 Message
               </Button>
-              <Button variant="primary">Edit</Button>
+              <Button href="/edit-profile" variant="primary">
+                Edit
+              </Button>
             </Card.Body>
           </Card>
         </Col>
@@ -33,22 +64,22 @@ const Profile = () => {
             <Card.Body>
               <Row>
                 <Col sm={4}>Full Name</Col>
-                <Col>Jack Sand</Col>
+                <Col>{profile.name}</Col>
               </Row>
               <hr />
               <Row>
                 <Col sm={4}>Email</Col>
-                <Col>jack@mail.com</Col>
+                <Col>{profile.email}</Col>
               </Row>
               <hr />
               <Row>
                 <Col sm={4}>Phone</Col>
-                <Col>+1 (239) 816-9029</Col>
+                <Col>{profile.phone}</Col>
               </Row>
               <hr />
               <Row>
                 <Col sm={4}>Address</Col>
-                <Col>Bay Area, San Francisco, CA</Col>
+                <Col>{profile.address}</Col>
               </Row>
             </Card.Body>
           </Card>
