@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import decode from "jwt-decode";
-import CardGroup from "react-bootstrap/CardGroup";
+import '../components/Box.css';
+//import decode from "jwt-decode";
+// import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import { Button, Breadcrumb, Row, Col } from "react-bootstrap";
-import image1 from "../assets/starryNight.jpg";
-import image2 from "../assets/starryNight.jpg";
-import image3 from "../assets/starryNight.jpg";
-import product from "../assets/starryNight.jpg";
-import starryNight from "../assets/starryNight.jpg";
+// import image1 from "../assets/starryNight.jpg";
+// import image2 from "../assets/image2.jpg";
+// import image3 from "../assets/starryNight.jpg";
+// import product from "../assets/starryNight.jpg";
+// import starryNight from "../assets/starryNight.jpg";
 
 const styles = {
   cardGroup: {
@@ -17,6 +18,7 @@ const styles = {
   card: {
     borderRadius: 10,
     padding: "5px",
+    width: "18rem"
   },
   cardImage: {
     objectFit: "cover",
@@ -34,7 +36,7 @@ export const Product_List = () => {
 
   const [products, setProducts] = useState([]);
 
-  let decodeddata = decode(localStorage.getItem("token"));
+  // let decodeddata = decode(localStorage.getItem("token"));
 
   useEffect(() => {
     sendGetRequest();
@@ -62,18 +64,15 @@ export const Product_List = () => {
   return (
 
     <div>
-      <div class="product_list container">
+      <div className="product_list container">
         <Breadcrumb className="">
           <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
           <Breadcrumb.Item href="#">Library</Breadcrumb.Item>
           <Breadcrumb.Item active>Data</Breadcrumb.Item>
         </Breadcrumb>
-        <div class="container">
-          <CardGroup className="mb-4">
-            {products.map((p) => (
-              <Product prod={p} key={p._id} />))}
-          </CardGroup>
-
+        <div className="grid">
+          {products.map(Product)}
+          {/* <Product prod={p} key={p._id} />))} */}
         </div>
       </div>
     </div>
@@ -81,11 +80,12 @@ export const Product_List = () => {
 };
 
 
-const Product = ({ prod }) => {
+
+const Product = (prod, index) => {
 
   return (
     <>
-      <Card className="m-2" style={styles.card}>
+      <Card style={styles.card} key={index} className="box">
         <Card.Img
           variant="top"
           src={prod.photo}
@@ -109,8 +109,8 @@ const Product = ({ prod }) => {
       </Card>
     </>
   );
+};
 
-}
 
 export default Product_List;
 // return (
