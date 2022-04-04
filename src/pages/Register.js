@@ -24,17 +24,13 @@ export const Register = () => {
 
     let config = {
       headers: {
-
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
     };
-
-
     const data = new FormData();
     data.append("username", username);
     data.append("email", email);
     data.append("password", password);
-
     console.log(data);
     try {
       const response = await axios.post(
@@ -52,8 +48,8 @@ export const Register = () => {
     }
   };
   return (
-    <div class="d-flex justify-content-center">
-      <form class="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
+    <div className="d-flex justify-content-center">
+      <form className="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
         <h3>Register</h3>
 
         <div className="form-group">

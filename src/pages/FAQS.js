@@ -55,7 +55,7 @@ const Faq = ({ faq }) => {
       <Card>
         <Accordion.Toggle as={Card.Header} eventKey={faq._id}>
           {faq.question}
-          <i class="fa fa-angle-down d-flex justify-content-end" />
+          <i className="fa fa-angle-down d-flex justify-content-end" />
         </Accordion.Toggle>
         <Accordion.Collapse eventKey={faq._id}>
           <Card.Body>

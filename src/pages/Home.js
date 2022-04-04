@@ -1,11 +1,17 @@
-import React from "react";
-import "../App"
+import React, { useEffect } from "react";
+import { Widget, addResponseMessage } from "react-chat-widget";
+import "react-chat-widget/lib/styles.css";
+import { io } from 'socket.io-client';
+import "../App";
+import logo from '../logo.svg';
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
-import { Button} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import image1 from "../assets/starryNight.jpg";
 import image3 from "../assets/starryNight.jpg";
 import starryNight from "../assets/starryNight.jpg";
+
+const socket = io('http://localhost:5000');
 
 
 const styles = {
@@ -27,6 +33,20 @@ const styles = {
 
 
 const Home = () => {
+
+  useEffect(() => {
+    addResponseMessage("Welcome to our 24*7 support chat");
+    socket.on('receive-message', (message) => {
+      addResponseMessage(message);
+    });
+  }, []);
+
+  const handleNewUserMessage = (newMessage) => {
+    // console.log(`new message incoming! ${newMessage}`);
+    socket.emit('send-message', newMessage);
+    //now send message to backend API
+  };
+
   return (
     <React.Fragment>
 
@@ -445,9 +465,16 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Widget
+        title="Welcome"
+        subtitle="To our support chat"
+        handleNewUserMessage={handleNewUserMessage}
+        profileAvatar={logo}
+        emojis="true"
+      />
 
     </React.Fragment>
   )
-};
+}
 
 export default Home;

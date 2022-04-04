@@ -43,10 +43,10 @@ const Login = () => {
     }
   };
   return (
-    <div class="d-flex justify-content-center">
+    <div className="d-flex justify-content-center">
       <h3>Log in</h3>
 
-      <form class="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
+      <form className="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
           <label>Email</label>
           <input

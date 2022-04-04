@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
 
-
->>>>>>> bc326fe3ae57b91d3c5661d78b0e4daa590052f6
 .App {
   text-align: center;
 }
@@ -182,13 +178,9 @@ li a:hover:not(.active) {
 /**Dhanushi **/
 
 
-/**Dhanushi **/
-
-
 
 /* Styling the body */
 body {
-
   margin: 0;
   padding: 0;
 }
@@ -199,7 +191,13 @@ section {
   width: 100%;
   height: 100vh;
 }
+.eventList{
+  width: 100%;
+}
 
+.events{
+  width: 100%;
+}
 /* Styling the left floating section */
 section .leftBox {
   width: 50%;
@@ -215,15 +213,11 @@ section .leftBox {
 /* Styling the background of
   left floating section */
 section .leftBox .content {
-  background-image: url("virtualfair.jpg");
-  background-repeat: no-repeat;
   height: 100%;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
-
-   padding: 40px;
-  transition: .5s;
-
+  padding: 40px;
+  transition: 0.5s;
 }
 
 /* Styling the hover effect 
@@ -288,9 +282,7 @@ section .events ul li .time {
   height: 100%;
   float: left;
   text-align: center;
-
   transition: 0.5s;
-
 }
 
 /* Styling the hover effect
@@ -357,8 +349,7 @@ section .events ul li .details a {
   border: 1.5px solid #262626;
   margin-top: 8px;
   font-size: 18px;
-  transition: .5s;
-
+  transition: 0.5s;
 }
 
 /* Styling the details class's hover effect */
@@ -366,8 +357,6 @@ section .events ul li .details a:hover {
   background: #e91e63;
   color: #fff;
   border-color: #e91e63;
-
-
 }
 
 
@@ -394,5 +383,4 @@ section .events ul li .details a:hover {
   text-align: center;
   color: white;
   background-color: black;
-
 }
