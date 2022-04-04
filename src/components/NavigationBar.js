@@ -100,4 +100,6 @@ const NavigationBar = () => (
   </Styles>
 );
 
+
 export default NavigationBar;
+

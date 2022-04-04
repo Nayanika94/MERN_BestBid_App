@@ -24,14 +24,17 @@ export const Register = () => {
 
     let config = {
       headers: {
+
         "Content-Type": "application/json",
       },
     };
-    let data = {
-      email: email,
-      username: username,
-      password: password,
-    };
+
+
+    const data = new FormData();
+    data.append("username", username);
+    data.append("email", email);
+    data.append("password", password);
+
     console.log(data);
     try {
       const response = await axios.post(
