@@ -4,7 +4,11 @@ const Footer = () => {
   return (
     <div className="footer-dark">
       <footer>
+<<<<<<< HEAD
         <div className="container">
+=======
+        <div className="container" >
+>>>>>>> c12a0504af953a52a47f8b8e4bca62f785781759
           <div className="row">
             <div className="col-sm-6 col-md-3 item">
               <h3>Services</h3>

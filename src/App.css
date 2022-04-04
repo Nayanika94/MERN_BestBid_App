@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c12a0504af953a52a47f8b8e4bca62f785781759
 .App {
   text-align: center;
 }
@@ -351,3 +356,32 @@ section .events ul li .details a:hover {
   color: #fff;
   border-color: #e91e63;
 }
+<<<<<<< HEAD
+=======
+
+
+/* Home Page CSS */
+.bg-image{
+    background-image: url("../src/assets/bestbid.jpg");
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.bg-text{
+  z-index: 10;
+  opacity: 10;
+}
+
+.sub-topic{
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+>>>>>>> c12a0504af953a52a47f8b8e4bca62f785781759
