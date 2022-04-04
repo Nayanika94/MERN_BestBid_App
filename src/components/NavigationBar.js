@@ -83,13 +83,13 @@ const NavigationBar = () => (
 
           <Nav.Item>
             <Nav.Link as={Link} to="/event">
-             Event
+              Event
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link as={Link} to="/feedback">
-             Feedback
+              Feedback
             </Nav.Link>
           </Nav.Item>
         </Nav>
@@ -98,8 +98,4 @@ const NavigationBar = () => (
   </Styles>
 );
 
-<<<<<<< HEAD
 export default NavigationBar;
-=======
-export default NavigationBar;
->>>>>>> 9e5f077c820f0d6f85160b50d1c617150d2bab96
