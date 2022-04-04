@@ -1,5 +1,8 @@
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9e5f077c820f0d6f85160b50d1c617150d2bab96
 .App {
   text-align: center;
 }
@@ -178,6 +181,8 @@ li a:hover:not(.active) {
 
 /**Dhanushi **/
 
+
+
 /* Styling the body */
 body {
   margin: 0;
@@ -190,7 +195,13 @@ section {
   width: 100%;
   height: 100vh;
 }
+.eventList{
+  width: 100%;
+}
 
+.events{
+  width: 100%;
+}
 /* Styling the left floating section */
 section .leftBox {
   width: 50%;
@@ -206,8 +217,6 @@ section .leftBox {
 /* Styling the background of
   left floating section */
 section .leftBox .content {
-  background-image: url("virtualfair.jpg");
-  background-repeat: no-repeat;
   height: 100%;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);

@@ -40,7 +40,10 @@ const Payment = () => {
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9e5f077c820f0d6f85160b50d1c617150d2bab96
   );
 };
 

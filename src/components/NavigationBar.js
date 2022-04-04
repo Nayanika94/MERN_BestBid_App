@@ -98,4 +98,8 @@ const NavigationBar = () => (
   </Styles>
 );
 
+<<<<<<< HEAD
 export default NavigationBar;
+=======
+export default NavigationBar;
+>>>>>>> 9e5f077c820f0d6f85160b50d1c617150d2bab96
