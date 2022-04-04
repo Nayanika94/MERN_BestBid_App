@@ -48,13 +48,8 @@ export const Register = () => {
     }
   };
   return (
-<<<<<<< HEAD
-    <div class="d-flex justify-content-center">
-      <form class="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
-=======
     <div className="d-flex justify-content-center">
       <form className="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
->>>>>>> c12a0504af953a52a47f8b8e4bca62f785781759
         <h3>Register</h3>
 
         <div className="form-group">

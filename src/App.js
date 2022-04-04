@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-<<<<<<< HEAD
-import FAQ from "./pages/FAQ";
-=======
 import FAQ from "./pages/FAQS";
->>>>>>> c12a0504af953a52a47f8b8e4bca62f785781759
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -19,11 +15,6 @@ import Payment from "./pages/Payment";
 import Footer from "./components/Footer";
 import Product_List from "./pages/Product_List";
 import Edit_Profile from "./pages/Edit_Profile";
-<<<<<<< HEAD
-import "./App.css";
-import AuthContext from "./context/AuthContext";
-
-=======
 import io from 'socket.io-client';
 import "./App.css";
 import AuthContext from "./context/AuthContext";
@@ -31,7 +22,6 @@ import AuthContext from "./context/AuthContext";
 
 const socket = io.connect("http://localhost:5000");
 
->>>>>>> c12a0504af953a52a47f8b8e4bca62f785781759
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState("false");
 
@@ -91,8 +81,5 @@ const App = () => {
 };
 
 export default App;
-<<<<<<< HEAD
-=======
 
 
->>>>>>> c12a0504af953a52a47f8b8e4bca62f785781759
