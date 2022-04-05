@@ -4,9 +4,11 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import FAQ from "./pages/FAQS";
 import Contact from "./pages/Contact";
+import Feedback from "./pages/Feedback";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NoMatch from "./pages/NoMatch";
+import Events from "./pages/Events";
 import Layout from "./components/Layout";
 import NavigationBar from "./components/NavigationBar";
 import Product from "./pages/Product";
@@ -15,10 +17,9 @@ import Payment from "./pages/Payment";
 import Footer from "./components/Footer";
 import Product_List from "./pages/Product_List";
 import Edit_Profile from "./pages/Edit_Profile";
-import io from 'socket.io-client';
+import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
-
 
 const socket = io.connect("http://localhost:5000");
 
@@ -47,6 +48,8 @@ const App = () => {
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/event" element={<Events />} />
+        <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/edit-profile" element={<Edit_Profile />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
@@ -61,7 +64,9 @@ const App = () => {
         <Route exact path="/faq" element={<FAQ />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/event" element={<Events />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/payment" element={<Payment />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
@@ -81,5 +86,3 @@ const App = () => {
 };
 
 export default App;
-
-

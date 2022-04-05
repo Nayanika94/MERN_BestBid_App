@@ -1,5 +1,3 @@
-
-
 .App {
   text-align: center;
 }
@@ -190,7 +188,13 @@ section {
   width: 100%;
   height: 100vh;
 }
+.eventList {
+  width: 100%;
+}
 
+.events {
+  width: 100%;
+}
 /* Styling the left floating section */
 section .leftBox {
   width: 50%;
@@ -206,8 +210,6 @@ section .leftBox {
 /* Styling the background of
   left floating section */
 section .leftBox .content {
-  background-image: url("virtualfair.jpg");
-  background-repeat: no-repeat;
   height: 100%;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
@@ -354,25 +356,23 @@ section .events ul li .details a:hover {
   border-color: #e91e63;
 }
 
-
 /* Home Page CSS */
-.bg-image{
-    background-image: url("../src/assets/bestbid.jpg");
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    padding: 20px;
-
+.bg-image {
+  background-image: url("../src/assets/bestbid.jpg");
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 20px;
 }
 
-.bg-text{
+.bg-text {
   z-index: 10;
   opacity: 10;
 }
 
-.sub-topic{
+.sub-topic {
   margin: 10px 0;
   padding: 10px;
   text-align: center;
