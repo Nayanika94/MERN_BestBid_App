@@ -41,7 +41,8 @@ const Product = () => {
                   <br />
                   <button type="button" className="btn btn-xs mb-1 btn-primary">
                     Place Bid
-                  </button>{'{'}" "{'}'}
+                  </button>
+                  {"{"}" "{"}"}
                   &nbsp; &nbsp;
                   <input type="number" placeholder="Min C$30000.00" />
                 </div>
@@ -51,10 +52,6 @@ const Product = () => {
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 9e5f077c820f0d6f85160b50d1c617150d2bab96
   );
 };
 

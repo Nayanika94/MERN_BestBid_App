@@ -13,18 +13,38 @@ const Contact = () => {
               <form>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
-                  <input type="text" className="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter name"
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email address</label>
-                  <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                    required
+                  />
                   <small id="emailHelp" className="form-text text-muted">
                     We'll never share your email with anyone else.
                   </small>
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
-                  <textarea className="form-control" id="message" rows={6} required defaultValue={""} />
+                  <textarea
+                    className="form-control"
+                    id="message"
+                    rows={6}
+                    required
+                    defaultValue={""}
+                  />
                 </div>
                 <div className="mx-auto">
                   <button type="submit" className="btn btn-primary text-right">
@@ -51,10 +71,6 @@ const Contact = () => {
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 9e5f077c820f0d6f85160b50d1c617150d2bab96
   );
 };
 

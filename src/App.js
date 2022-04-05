@@ -3,11 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import FAQ from "./pages/FAQS";
-<<<<<<< HEAD
-=======
-import Feedback from "./pages/Feedback";
->>>>>>> 9e5f077c820f0d6f85160b50d1c617150d2bab96
 import Contact from "./pages/Contact";
+import Feedback from "./pages/Feedback";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NoMatch from "./pages/NoMatch";
@@ -20,10 +17,9 @@ import Payment from "./pages/Payment";
 import Footer from "./components/Footer";
 import Product_List from "./pages/Product_List";
 import Edit_Profile from "./pages/Edit_Profile";
-import io from 'socket.io-client';
+import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
-
 
 const socket = io.connect("http://localhost:5000");
 
@@ -90,5 +86,3 @@ const App = () => {
 };
 
 export default App;
-
-
