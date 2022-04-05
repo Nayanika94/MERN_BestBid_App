@@ -1,4 +1,5 @@
 import React from "react";
+import { Widget, addResponseMessage } from "react-chat-widget";
 
 const Contact = () => {
   return (
@@ -50,6 +51,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Widget />
     </div>
 
   );

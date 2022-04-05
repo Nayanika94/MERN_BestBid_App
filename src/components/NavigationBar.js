@@ -29,15 +29,15 @@ const NavigationBar = () => (
               Home
             </Nav.Link>
           </Nav.Item>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="/">Action</NavDropdown.Item>
             <NavDropdown.Item href="/">Another action</NavDropdown.Item>
             <NavDropdown.Item href="/">Something</NavDropdown.Item>
             <NavDropdown.Item href="/">Separated link</NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
           <Nav.Item>
             <Nav.Link as={Link} to="/product-list">
-              List Products
+              Product List
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
@@ -83,13 +83,13 @@ const NavigationBar = () => (
 
           <Nav.Item>
             <Nav.Link as={Link} to="/event">
-             Event
+              Event
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link as={Link} to="/feedback">
-             Feedback
+              Feedback
             </Nav.Link>
           </Nav.Item>
         </Nav>

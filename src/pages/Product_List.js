@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import '../components/Box.css';
+import { Widget } from "react-chat-widget";
 //import decode from "jwt-decode";
 // import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
@@ -107,6 +108,7 @@ const Product = (prod, index) => {
           <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
       </Card>
+      <Widget />
     </>
   );
 };
