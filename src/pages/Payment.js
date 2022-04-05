@@ -9,7 +9,6 @@ const Payment = () => {
           <div className="col-12">
             <div className="d-flex flex-column">
               <p className="text mb-1">Person Name</p>
-              {"{"}" "{"}"}
               <input
                 className="form-control mb-3"
                 type="text"
@@ -21,7 +20,6 @@ const Payment = () => {
           <div className="col-12">
             <div className="d-flex flex-column">
               <p className="text mb-1">Card Number</p>
-              {"{"}" "{"}"}
               <input
                 className="form-control mb-3"
                 type="text"
@@ -32,7 +30,6 @@ const Payment = () => {
           <div className="col-6">
             <div className="d-flex flex-column">
               <p className="text mb-1">Expiry</p>
-              {"{"}" "{"}"}
               <input
                 className="form-control mb-3"
                 type="text"
@@ -43,7 +40,6 @@ const Payment = () => {
           <div className="col-6">
             <div className="d-flex flex-column">
               <p className="text mb-1">CVV/CVC</p>
-              {"{"}" "{"}"}
               <input
                 className="form-control mb-3 pt-2 "
                 type="password"
@@ -53,11 +49,8 @@ const Payment = () => {
           </div>
           <div className="col-12">
             <div className="btn btn-primary mb-3">
-              {"{"}" "{"}"}
               <span className="ps-3">Pay $243</span>
-              {"{"}" "{"}"}
               <span className="fas fa-arrow-right" />
-              {"{"}" "{"}"}
             </div>
           </div>
         </div>
