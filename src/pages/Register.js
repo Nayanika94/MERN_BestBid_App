@@ -34,7 +34,7 @@ export const Register = () => {
     console.log(data);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/user",
+        "http://localhost:5000/api/registerUser",
         data,
         config
       );

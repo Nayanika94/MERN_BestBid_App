@@ -1,7 +1,35 @@
-import React from "react";
-import { Widget, addResponseMessage } from "react-chat-widget";
+import React, { useState } from "react";
+import { Widget } from "react-chat-widget";
 
 const Contact = () => {
+  const [status, setStatus] = useState("Submit");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    const { name, email, message } = e.target.elements;
+
+    let details = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    };
+    let response = await fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(details),
+
+    });
+    setStatus("Submit");
+    let result = await response.json();
+    alert(result.status);
+    console.log(status);
+  };
+
+
   return (
     <div className="container m-5">
       <div className="row">
@@ -11,7 +39,7 @@ const Contact = () => {
               <i className="fa fa-envelope" /> Contact us.
             </div>
             <div className="card-body">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
@@ -49,7 +77,7 @@ const Contact = () => {
                 </div>
                 <div className="mx-auto">
                   <button type="submit" className="btn btn-primary text-right">
-                    Submit
+                    {status}
                   </button>
                 </div>
               </form>
