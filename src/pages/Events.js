@@ -40,6 +40,7 @@ const Events = () => {
             Get 200$ Gift cards on Sony Tv Appliances 
            </li>
            <li>
+           
             Flat 30% off on Home Appliances 
            </li>
          </ul> 

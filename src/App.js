@@ -15,11 +15,13 @@ import Product from "./pages/Product";
 import Profile from "./pages/Profile";
 import Payment from "./pages/Payment";
 import Footer from "./components/Footer";
+import Thankyou from "./pages/Thankyou";
 import Product_List from "./pages/Product_List";
 import Edit_Profile from "./pages/Edit_Profile";
 import io from 'socket.io-client';
 import "./App.css";
 import AuthContext from "./context/AuthContext";
+
 
 
 const socket = io.connect("http://localhost:5000");
@@ -50,6 +52,7 @@ const App = () => {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/event" element={<Events />} />
+        <Route exact path="/thankyou" element={<Thankyou />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/edit-profile" element={<Edit_Profile />} />
         <Route path="*" element={<NoMatch />} />
@@ -66,6 +69,7 @@ const App = () => {
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/event" element={<Events />} />
+        <Route exact path="/thankyou" element={<Thankyou />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/payment" element={<Payment />} />

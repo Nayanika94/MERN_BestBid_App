@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import history from "./history";
 import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
 
 const Feedback = () => {
+
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
   const [formData, setFromDate] = useState({
@@ -16,39 +18,42 @@ const Feedback = () => {
   const onChange = (e) => {
     setFromDate({ ...formData, [e.target.name]: e.target.value });
   };
+const handleSubmit = (e) => {
+navigate("/thankyou");
+}
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  // const onSubmit = async (e) => {
+  //   e.preventDefault();
 
-    let config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    let data = {
-    name: name,
-    lastname: lastname,
-    email: email,
-    feedback: feedback,
-    };
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth",
-        data,
-        config
-      );
+  //   let config = {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
+  //   let data = {
+  //   name: name,
+  //   lastname: lastname,
+  //   email: email,
+  //   feedback: feedback,
+  //   };
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:5000/api/auth",
+  //       data,
+  //       config
+  //     );
 
-      localStorage.setItem("token", response.data.token);
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     localStorage.setItem("token", response.data.token);
+  //     navigate("/");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   return (
     <div class="d-flex justify-content-center">
       <h3>Feedback</h3>
 
-      <form class="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
+      <form class="m-5 w-50" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>
           <input
@@ -96,8 +101,8 @@ const Feedback = () => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <button type="submit" className="btn btn-dark btn-lg btn-block">
-          Feedback
+        <button type="submit" className="btn btn-dark btn-lg btn-block" >
+          Submit
         </button>
        
       </form>

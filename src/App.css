@@ -20,6 +20,15 @@
   color: white;
 }
 
+.events{
+
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.events ul{
+  margin: 120px;
+}
 .App-link {
   color: #61dafb;
 }
@@ -205,6 +214,7 @@ section .leftBox {
   background-image: url("bidding.jpg");
   background-repeat: no-repeat;
   float: left;
+
   padding: 50px;
   box-sizing: border-box;
   background-size: cover;
@@ -247,7 +257,8 @@ section .events {
   position: relative;
   width: 50%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  background: rgba(165, 44, 44, 0.5);
   float: right;
   box-sizing: border-box;
 }
@@ -258,7 +269,7 @@ section .events ul {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  margin: 0;
+ 
   padding: 40px;
   box-sizing: border-box;
 }
