@@ -1,15 +1,9 @@
 import React from "react";
 import product from "../assets/starryNight.jpg";
-import { Breadcrumb } from "react-bootstrap";
 
 const Product = () => {
   return (
     <div className="container">
-      <Breadcrumb>
-        <Breadcrumb.item href="#">Home</Breadcrumb.item>
-        <Breadcrumb.item href="#">Library</Breadcrumb.item>
-        <Breadcrumb.item active>Data</Breadcrumb.item>
-      </Breadcrumb>
       <div className="container m-auto">
         <div className="m-4 mainWindow shadow bg-white-rounded p-1">
           <div className="d-flex flex-row flex-no-wrap bg-1">
@@ -35,15 +29,13 @@ const Product = () => {
                   beauty is timeless and universal.'
                 </div>
                 <div className="sizes mt-1 pr-1">
-                  <button type="button" className="btn btn-xs mb-1 btn-warning">
-                    Buy Now
-                  </button>
                   <br />
-                  <button type="button" className="btn btn-xs mb-1 btn-primary">
+                  <button
+                    type="button"
+                    className="btn btn-xs mb-1 btn-primary mr-3"
+                  >
                     Place Bid
                   </button>
-                  {"{"}" "{"}"}
-                  &nbsp; &nbsp;
                   <input type="number" placeholder="Min C$30000.00" />
                 </div>
               </div>

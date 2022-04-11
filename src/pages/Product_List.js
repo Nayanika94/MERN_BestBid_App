@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import '../components/Box.css';
+import axios from "axios";
+import "../components/Box.css";
 import { Widget } from "react-chat-widget";
-//import decode from "jwt-decode";
-// import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import { Button, Breadcrumb, Row, Col } from "react-bootstrap";
-// import image1 from "../assets/starryNight.jpg";
-// import image2 from "../assets/image2.jpg";
-// import image3 from "../assets/starryNight.jpg";
-// import product from "../assets/starryNight.jpg";
-// import starryNight from "../assets/starryNight.jpg";
+import image1 from "../assets/starryNight.jpg";
+import image2 from "../assets/image2.jpg";
+import image3 from "../assets/starryNight.jpg";
+import product from "../assets/starryNight.jpg";
+import starryNight from "../assets/starryNight.jpg";
 
 const styles = {
   cardGroup: {
@@ -19,7 +17,7 @@ const styles = {
   card: {
     borderRadius: 10,
     padding: "5px",
-    width: "18rem"
+    width: "18rem",
   },
   cardImage: {
     objectFit: "cover",
@@ -33,8 +31,6 @@ const styles = {
 };
 
 export const Product_List = () => {
-
-
   const [products, setProducts] = useState([]);
 
   // let decodeddata = decode(localStorage.getItem("token"));
@@ -44,7 +40,6 @@ export const Product_List = () => {
   }, []);
 
   const sendGetRequest = async () => {
-
     try {
       let token = localStorage.getItem("token");
 
@@ -55,15 +50,17 @@ export const Product_List = () => {
         },
       };
 
-      const response = await axios.get('http://localhost:5000/api/product/', config);
+      const response = await axios.get(
+        "http://localhost:5000/api/product/",
+        config
+      );
       setProducts(response.data);
       console.log(response);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
   return (
-
     <div>
       <div className="product_list container">
         <Breadcrumb className="">
@@ -80,27 +77,17 @@ export const Product_List = () => {
   );
 };
 
-
-
 const Product = (prod, index) => {
-
   return (
     <>
       <Card style={styles.card} key={index} className="box">
-        <Card.Img
-          variant="top"
-          src={prod.photo}
-          style={styles.cardImage}
-        />
+        <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
         <Card.Body>
           <Card.Text>{prod.title}</Card.Text>
           <Card.Title>C${prod.price}</Card.Title>
         </Card.Body>
         <div className="mb-2">
-          <Button variant="success" size="sm">
-            Place Bid
-          </Button>{" "}
-          <Button variant="warning" size="sm">
+          <Button variant="warning" size="sm" link="/product/{prod.title}">
             Buy Now
           </Button>
         </div>
@@ -112,7 +99,6 @@ const Product = (prod, index) => {
     </>
   );
 };
-
 
 export default Product_List;
 // return (
@@ -373,4 +359,3 @@ export default Product_List;
 //   </div>
 // );
 // };
-
