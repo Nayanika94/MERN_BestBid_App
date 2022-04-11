@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { Widget } from "react-chat-widget";
 
 const Contact = () => {
+  const [status, setStatus] = useState("Submit");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    const { name, email, message } = e.target.elements;
+
+    let details = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    };
+    let response = await fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(details),
+
+    });
+    setStatus("Submit");
+    let result = await response.json();
+    alert(result.status);
+    console.log(status);
+  };
+
+
   return (
     <div className="container m-5">
       <div className="row">
@@ -10,25 +39,45 @@ const Contact = () => {
               <i className="fa fa-envelope" /> Contact us.
             </div>
             <div className="card-body">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
-                  <input type="text" className="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name" required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter name"
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email address</label>
-                  <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                    required
+                  />
                   <small id="emailHelp" className="form-text text-muted">
                     We'll never share your email with anyone else.
                   </small>
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
-                  <textarea className="form-control" id="message" rows={6} required defaultValue={""} />
+                  <textarea
+                    className="form-control"
+                    id="message"
+                    rows={6}
+                    required
+                    defaultValue={""}
+                  />
                 </div>
                 <div className="mx-auto">
                   <button type="submit" className="btn btn-primary text-right">
-                    Submit
+                    {status}
                   </button>
                 </div>
               </form>
@@ -50,6 +99,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Widget />
     </div>
   );
 };

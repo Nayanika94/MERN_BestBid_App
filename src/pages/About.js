@@ -1,4 +1,5 @@
 import React from "react";
+import { Widget, addResponseMessage } from "react-chat-widget";
 
 const About = () => {
   return (
@@ -193,6 +194,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Widget />
     </div>
   );
 };
