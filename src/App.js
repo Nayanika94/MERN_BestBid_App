@@ -20,6 +20,7 @@ import Edit_Profile from "./pages/Edit_Profile";
 import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
+import { HowDoesitWork } from "./pages/HowDoesitWork";
 
 const socket = io.connect("http://localhost:5000");
 
@@ -51,6 +52,7 @@ const App = () => {
         <Route exact path="/event" element={<Events />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/edit-profile" element={<Edit_Profile />} />
+        <Route exact path="HowDoesitWork" element={<HowDoesitWork />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     );
@@ -68,6 +70,8 @@ const App = () => {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/payment" element={<Payment />} />
+
+       
         <Route path="*" element={<NoMatch />} />
       </Routes>
     );

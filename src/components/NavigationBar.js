@@ -82,6 +82,19 @@ const NavigationBar = () => {
                 </Nav.Item>
               </>
             )}
+
+
+            {auth.isLoggedIn && (
+              <>
+                <Nav.Item>
+                  <Nav.Link as={Link} to="/HowDoesitWork">
+                    How Auction Works
+                  </Nav.Link>
+                </Nav.Item>
+              </>
+            )}
+
+
             {auth.isLoggedIn ? (
               <Nav.Item>
                 <Nav.Link onClick={auth.logout}>Logout</Nav.Link>
