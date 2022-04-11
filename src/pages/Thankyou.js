@@ -1,9 +1,9 @@
 import React from "react";
 const Thankyou = () => {
     return (
-      <div>
-        <h2>Thank you</h2>
-      </div>
+        
+        <div className="thankyou"></div>
+   
     );
   };
   
