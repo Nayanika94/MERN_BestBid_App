@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Breadcrumb, Card, Button, Row, Col, Tabs, Tab } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Card, Button, Row, Col, Modal } from "react-bootstrap";
 import image1 from "../assets/image1.jpg";
 import axios from "axios";
 import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
+import "react-dropzone-uploader/dist/styles.css";
 
 const Edit_Profile = () => {
   const [profile, setProfile] = useState({
@@ -15,11 +16,15 @@ const Edit_Profile = () => {
   });
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-  const { name, email, phone, address } = profile;
 
   const onChange = (e) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
   };
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   let decodeddata = decode(localStorage.getItem("token"));
   useEffect(() => {
@@ -36,6 +41,7 @@ const Edit_Profile = () => {
         "x-auth-token": token,
       },
     };
+    console.log(profile);
     try {
       const response = await axios.put(
         "http://localhost:5000/api/user",
@@ -67,13 +73,53 @@ const Edit_Profile = () => {
       console.log(err);
     }
   };
+
+  const [picture, setPicture] = useState(null);
+  const [imgData, setImgData] = useState(null);
+  const onChangePicture = (e) => {
+    if (e.target.files[0]) {
+      console.log("picture: ", e.target.files);
+      setPicture(e.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        setImgData(reader.result);
+      });
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    console.log(ImageData);
+  };
+
+  const updateProfilePicture = async (e) => {};
   return (
-    <div class="container mt-2 mb-2">
-      <Breadcrumb>
-        <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-      </Breadcrumb>
+    <div className="container mt-2 mb-2">
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Change Profile Picture</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="previewComponent">
+            <form onSubmit={(e) => updateProfilePicture(e)}>
+              <input
+                className="fileInput"
+                type="file"
+                onChange={onChangePicture}
+              />
+              <button className="pictureUploadButton" type="submit">
+                Upload Image
+              </button>
+            </form>
+            <div className="imgPreview">
+              {imgData != "" ? (
+                <img className="profilePreview" src={imgData} />
+              ) : (
+                <div className="previewText">
+                  Please select an Image for Preview
+                </div>
+              )}
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
 
       <Row className="g-4">
         <Col sm={3}>
@@ -81,11 +127,7 @@ const Edit_Profile = () => {
             <Card.Img variant="top" src={image1} />
             <Card.Body>
               <Card.Title>{profile.username}</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary" className="mr-2">
+              <Button variant="primary" className="mr-2" onClick={handleShow}>
                 Change Profile
               </Button>
             </Card.Body>

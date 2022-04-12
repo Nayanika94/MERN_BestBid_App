@@ -34,25 +34,12 @@ const Profile = () => {
   };
   return (
     <div class="container mt-2 mb-2">
-      <Breadcrumb>
-        <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-      </Breadcrumb>
-
       <Row className="g-4">
         <Col sm={3}>
           <Card>
             <Card.Img variant="top" src={image1} />
             <Card.Body>
               <Card.Title>{profile.username}</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary" className="mr-2">
-                Message
-              </Button>
               <Button href="/edit-profile" variant="primary">
                 Edit
               </Button>
