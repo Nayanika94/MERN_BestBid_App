@@ -42,8 +42,8 @@ const App = () => {
     appRoutes = (
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/product" element={<Product />} />
-        <Route exact path="/product-list" element={<Product_List />} />
+        <Route exact path="/product/:id" element={<Product />} />
+        <Route exact path="/product" element={<Product_List />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/faq" element={<FAQ />} />
         <Route exact path="/contact" element={<Contact />} />
@@ -63,8 +63,8 @@ const App = () => {
     appRoutes = (
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/product" element={<Product />} />
-        <Route exact path="/product-list" element={<Product_List />} />
+        <Route exact path="/product/:id" element={<Product />} />
+        <Route exact path="/product" element={<Product_List />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/faq" element={<FAQ />} />
         <Route exact path="/contact" element={<Contact />} />
@@ -75,7 +75,7 @@ const App = () => {
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/payment" element={<Payment />} />
 
-       
+
         <Route path="*" element={<NoMatch />} />
       </Routes>
     );

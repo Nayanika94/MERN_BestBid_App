@@ -1,5 +1,5 @@
 import React from "react";
-import { Widget, addResponseMessage } from "react-chat-widget";
+import { Widget } from "react-chat-widget";
 
 const About = () => {
   return (

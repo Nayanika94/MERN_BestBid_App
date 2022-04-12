@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { io } from 'socket.io-client';
 import "../App";
+import ProductContext from "../context/ProductContext";
 import logo from '../logo.svg';
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
@@ -34,6 +35,8 @@ const styles = {
 
 const Home = () => {
 
+  const { products } = useContext(ProductContext);
+
   useEffect(() => {
     addResponseMessage("Welcome to our 24*7 support chat");
     socket.on('receive-message', (message) => {
@@ -48,7 +51,7 @@ const Home = () => {
   };
 
   return (
-    <React.Fragment>
+    <ProductContext.Provider value={{ products }}>
 
       <div className="container">
         <div className="row">
@@ -86,228 +89,7 @@ const Home = () => {
                     <small className="text-muted">Last updated 3 mins ago</small>
                   </Card.Footer>
                 </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img variant="top" src={image1} style={styles.cardImage} />
-                  <Card.Body>
-                    <Card.Text>ABC</Card.Text>
-                    <Card.Title>C$20000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img variant="top" src={image3} style={styles.cardImage} />
-                  <Card.Body>
-                    <Card.Text>ABC</Card.Text>
-                    <Card.Title>C$150.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img
-                    variant="top"
-                    src={starryNight}
-                    style={styles.cardImage}
-                  />
-                  <Card.Body>
-                    <Card.Text>Starry Night painting</Card.Text>
-                    <Card.Title>C$30000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-              </CardGroup>
-              <CardGroup className="mb-4">
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img
-                    variant="top"
-                    src={starryNight}
-                    style={styles.cardImage}
-                  />
-                  <Card.Body>
-                    <Card.Text>Starry Night painting</Card.Text>
-                    <Card.Title>C$30000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img variant="top" src={image1} style={styles.cardImage} />
-                  <Card.Body>
-                    <Card.Text>ABC</Card.Text>
-                    <Card.Title>C$20000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img variant="top" src={image3} style={styles.cardImage} />
-                  <Card.Body>
-                    <Card.Text>ABC</Card.Text>
-                    <Card.Title>C$150.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img
-                    variant="top"
-                    src={starryNight}
-                    style={styles.cardImage}
-                  />
-                  <Card.Body>
-                    <Card.Text>Starry Night painting</Card.Text>
-                    <Card.Title>C$30000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-              </CardGroup>
-              <CardGroup className="mb-4">
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img
-                    variant="top"
-                    src={starryNight}
-                    style={styles.cardImage}
-                  />
-                  <Card.Body>
-                    <Card.Text>Starry Night painting</Card.Text>
-                    <Card.Title>C$30000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img variant="top" src={image1} style={styles.cardImage} />
-                  <Card.Body>
-                    <Card.Text>ABC</Card.Text>
-                    <Card.Title>C$20000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img variant="top" src={image3} style={styles.cardImage} />
-                  <Card.Body>
-                    <Card.Text>ABC</Card.Text>
-                    <Card.Title>C$150.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img
-                    variant="top"
-                    src={starryNight}
-                    style={styles.cardImage}
-                  />
-                  <Card.Body>
-                    <Card.Text>Starry Night painting</Card.Text>
-                    <Card.Title>C$30000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
+
               </CardGroup>
             </div>
           </div>
@@ -473,7 +255,7 @@ const Home = () => {
         emojis="true"
       />
 
-    </React.Fragment>
+    </ProductContext.Provider>
   )
 }
 

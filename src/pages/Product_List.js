@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import "../components/Box.css";
 import { Widget } from "react-chat-widget";
 import Card from "react-bootstrap/Card";
-import { Button, Breadcrumb, Row, Col } from "react-bootstrap";
-import image1 from "../assets/starryNight.jpg";
-import image2 from "../assets/image2.jpg";
-import image3 from "../assets/starryNight.jpg";
-import product from "../assets/starryNight.jpg";
-import starryNight from "../assets/starryNight.jpg";
+import ProductContext from "../context/ProductContext";
+import { Button, Breadcrumb } from "react-bootstrap";
 
 const styles = {
   cardGroup: {
@@ -31,9 +28,9 @@ const styles = {
 };
 
 export const Product_List = () => {
-  const [products, setProducts] = useState([]);
 
-  // let decodeddata = decode(localStorage.getItem("token"));
+
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     sendGetRequest();
@@ -55,7 +52,6 @@ export const Product_List = () => {
         config
       );
       setProducts(response.data);
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -77,18 +73,20 @@ export const Product_List = () => {
   );
 };
 
-const Product = (prod, index) => {
+const Product = (prod) => {
+
   return (
     <>
-      <Card style={styles.card} key={index} className="box">
+      <Card style={styles.card} key={prod._id} className="box">
         <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
         <Card.Body>
           <Card.Text>{prod.title}</Card.Text>
           <Card.Title>C${prod.price}</Card.Title>
         </Card.Body>
         <div className="mb-2">
-          <Button variant="warning" size="sm" link="/product/{prod.title}">
-            Buy Now
+          <Button
+            variant="warning" size="sm" >
+            <Link to={`/product/${prod._id}`}>Buy Now</Link>
           </Button>
         </div>
         <Card.Footer>

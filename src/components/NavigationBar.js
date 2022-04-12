@@ -33,12 +33,12 @@ const NavigationBar = () => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} to="/product-list">
+              <Nav.Link as={Link} to="/product">
                 Product List
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} to="/product">
+              <Nav.Link as={Link} to="/product/:id">
                 Products
               </Nav.Link>
             </Nav.Item>
