@@ -37,11 +37,7 @@ const NavigationBar = () => {
                 Product List
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link as={Link} to="/product/:id">
-                Products
-              </Nav.Link>
-            </Nav.Item>
+
             <Nav.Item>
               <Nav.Link as={Link} to="/about">
                 About

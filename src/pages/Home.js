@@ -2,12 +2,15 @@ import React, { useContext, useEffect } from "react";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { io } from 'socket.io-client';
+import { Link } from 'react-router-dom';
 import "../App";
-import ProductContext from "../context/ProductContext";
+import axios from 'axios';
+import { ProductProvider } from "../context/ProductContext";
 import logo from '../logo.svg';
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
+import { ProductContext } from "../context/ProductContext";
 import image1 from "../assets/starryNight.jpg";
 import image3 from "../assets/starryNight.jpg";
 import starryNight from "../assets/starryNight.jpg";
@@ -35,7 +38,7 @@ const styles = {
 
 const Home = () => {
 
-  const { products } = useContext(ProductContext);
+  const { products, setProducts } = useContext(ProductContext);
 
   useEffect(() => {
     addResponseMessage("Welcome to our 24*7 support chat");
@@ -44,6 +47,31 @@ const Home = () => {
     });
   }, []);
 
+  useEffect(() => {
+    sendGetRequest();
+  }, []);
+
+  const sendGetRequest = async () => {
+    try {
+      let token = localStorage.getItem("token");
+
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": token,
+        },
+      };
+
+      const response = await axios.get(
+        "http://localhost:5000/api/product/",
+        config
+      );
+      setProducts(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleNewUserMessage = (newMessage) => {
     // console.log(`new message incoming! ${newMessage}`);
     socket.emit('send-message', newMessage);
@@ -51,7 +79,7 @@ const Home = () => {
   };
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <>
 
       <div className="container">
         <div className="row">
@@ -63,38 +91,13 @@ const Home = () => {
         <div>
           <h3 className="bg-text sub-topic" > Our Ongoing Deals</h3>
         </div>
-        <div>
-          <div className="product_list container">
-            <div className="container">
-              <CardGroup className="mb-4">
-                <Card className="m-2" style={styles.card}>
-                  <Card.Img
-                    variant="top"
-                    src={starryNight}
-                    style={styles.cardImage}
-                  />
-                  <Card.Body>
-                    <Card.Text>Starry Night painting</Card.Text>
-                    <Card.Title>C$30000.00</Card.Title>
-                  </Card.Body>
-                  <div className="mb-2">
-                    <Button variant="success" size="sm">
-                      Place Bid
-                    </Button>{" "}
-                    <Button variant="warning" size="sm">
-                      Buy Now
-                    </Button>
-                  </div>
-                  <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                  </Card.Footer>
-                </Card>
 
-              </CardGroup>
-            </div>
-          </div>
 
+        <div className="grid">
+          {products.map(Product)}
+          {/* <Product prod={p} key={p._id} />))} */}
         </div>
+
         <div>
           <h3 className="bg-text sub-topic" > Our Team</h3>
         </div>
@@ -255,8 +258,33 @@ const Home = () => {
         emojis="true"
       />
 
-    </ProductContext.Provider>
+    </>
   )
 }
+
+const Product = (prod) => {
+
+  return (
+    <>
+      <Card style={styles.card} key={prod._id} className="box">
+        <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
+        <Card.Body>
+          <Card.Text>{prod.title}</Card.Text>
+          <Card.Title>C${prod.price}</Card.Title>
+        </Card.Body>
+        <div className="mb-2">
+          <Button
+            variant="warning" size="sm" >
+            <Link to={`/product/${prod._id}`}>Buy Now</Link>
+          </Button>
+        </div>
+        <Card.Footer>
+          <small className="text-muted">Last updated 3 mins ago</small>
+        </Card.Footer>
+      </Card>
+    </>
+  );
+};
+
 
 export default Home;

@@ -22,6 +22,7 @@ import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
 import { HowDoesitWork } from "./pages/HowDoesitWork";
+import { ProductProvider } from "./context/ProductContext";
 
 
 const socket = io.connect("http://localhost:5000");
@@ -84,11 +85,13 @@ const App = () => {
     <AuthContext.Provider
       value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
     >
-      <BrowserRouter>
-        <NavigationBar />
-        <Layout>{appRoutes}</Layout>
-        <Footer />
-      </BrowserRouter>
+      <ProductProvider>
+        <BrowserRouter>
+          <NavigationBar />
+          <Layout>{appRoutes}</Layout>
+          <Footer />
+        </BrowserRouter>
+      </ProductProvider>
     </AuthContext.Provider>
   );
 };

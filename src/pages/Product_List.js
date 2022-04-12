@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import "../components/Box.css";
 import { Widget } from "react-chat-widget";
 import Card from "react-bootstrap/Card";
-import ProductContext from "../context/ProductContext";
+import { ProductContext } from "../context/ProductContext";
 import { Button, Breadcrumb } from "react-bootstrap";
 
 const styles = {
@@ -30,8 +30,7 @@ const styles = {
 export const Product_List = () => {
 
 
-  const [products, setProducts] = useState([]);
-
+  const { products, setProducts } = useContext(ProductContext);
   useEffect(() => {
     sendGetRequest();
   }, []);
