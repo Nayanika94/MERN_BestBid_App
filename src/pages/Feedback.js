@@ -13,42 +13,14 @@ const Feedback = () => {
     email: "",
     password: "",
   });
-  const { name, lastname,  email, feedback } = formData;
+  const { name, lastname, email, feedback } = formData;
 
   const onChange = (e) => {
     setFromDate({ ...formData, [e.target.name]: e.target.value });
   };
-const handleSubmit = (e) => {
-navigate("/thankyou");
-}
-
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   let config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-  //   let data = {
-  //   name: name,
-  //   lastname: lastname,
-  //   email: email,
-  //   feedback: feedback,
-  //   };
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:5000/api/auth",
-  //       data,
-  //       config
-  //     );
-
-  //     localStorage.setItem("token", response.data.token);
-  //     navigate("/");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const handleSubmit = (e) => {
+    navigate("/thankyou");
+  }
   return (
     <div class="d-flex justify-content-center">
       <h3>Feedback</h3>
@@ -62,6 +34,7 @@ navigate("/thankyou");
             placeholder="Enter your name"
             name="name"
             value={name}
+            required
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -73,6 +46,7 @@ navigate("/thankyou");
             className="form-control"
             placeholder="Enter your last name"
             name="lastname"
+            required
             value={lastname}
             onChange={(e) => onChange(e)}
           />
@@ -86,6 +60,7 @@ navigate("/thankyou");
             placeholder="Enter your email"
             name="email"
             value={email}
+            required
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -98,13 +73,14 @@ navigate("/thankyou");
             placeholder="Enter your feedback"
             name="feedback"
             value={feedback}
+            required
             onChange={(e) => onChange(e)}
           />
         </div>
         <button type="submit" className="btn btn-dark btn-lg btn-block" >
           Submit
         </button>
-       
+
       </form>
     </div>
   );

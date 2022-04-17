@@ -1,0 +1,11 @@
+.search_bar {
+  padding: 10px;
+  border: 1px solid #fff;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  width: 93.5%;
+  outline: none;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: rgb(143, 143, 143);
+}

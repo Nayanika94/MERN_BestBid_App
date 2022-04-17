@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import Thankyou from "./pages/Thankyou";
 import Product_List from "./pages/Product_List";
 import Edit_Profile from "./pages/Edit_Profile";
+import Search from "../src/components/Search";
 import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
@@ -39,7 +40,7 @@ const App = () => {
     setIsLoggedIn(false);
   };
   let appRoutes;
-  if (isLoggedIn) {
+  if (!isLoggedIn) {
     appRoutes = (
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -75,7 +76,7 @@ const App = () => {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/payment" element={<Payment />} />
-
+        <Route exact path="HowDoesitWork" element={<HowDoesitWork />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
