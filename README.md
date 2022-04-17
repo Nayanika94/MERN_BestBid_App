@@ -26,33 +26,35 @@ We have
 
 ### Task division
 
+```
 Charmi
 
 - Careers
 - Repair services
 - 24/7 online services(contact us page)
 
-  Dhanushi
+Dhanushi
 
-* Login/Sign Up(home page)
-* Water delivery services
-* Feed back and Rating form(Rating and feedback page)
+- Login/Sign Up(home page)
+- Water delivery services
+- Feed back and Rating form(Rating and feedback page)
 
-  Kuldip
+Kuldip
 
-* Moving and packing services
-* About Us
-* Pickup Request form
+- Moving and packing services
+- About Us
+- Pickup Request form
 
-  Pruthvi
+Pruthvi
 
-* Contact us
-* Beauticians services
-* Query form
+- Contact us
+- Beauticians services
+- Query form
 
-  Nayanika
+Nayanika
 
-* Product List(search)
-* Product(search)
-* Chat Widget
-* Nodemailer(contact us)
+- Product List(search)
+- Product(search)
+- Chat Widget
+- Nodemailer(contact us)
+```
