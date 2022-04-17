@@ -14,8 +14,9 @@ const styles = {
   },
   card: {
     borderRadius: 10,
+    textAlign: "center",
     padding: "5px",
-    width: "18rem"
+    maxWidth: "275px",
   },
   cardImage: {
     objectFit: "contain",
@@ -109,9 +110,9 @@ const Product = (prod) => {
           <Card.Title>C${prod.price}</Card.Title>
         </Card.Body>
         <div className="mb-2">
-          <Button
+          <Button style={{ textTransform: "uppercase" }}
             variant="warning" size="sm" >
-            <Link to={`/product/${prod._id}`}>Buy Now</Link>
+            <Link style={{ textDecoration: "none", color: "black" }} to={`/product/${prod._id}`}>Buy Now</Link>
           </Button>
         </div>
         {/* <Card.Footer>

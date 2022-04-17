@@ -34,27 +34,27 @@ Our project will have a multitude of features to enhance user experience:
 ```
 Charmi
 
-- Careers
-- Repair services
-- 24/7 online services(contact us page)
+-
+-
+-
 
 Dhanushi
 
-- Login/Sign Up(home page)
-- Water delivery services
-- Feed back and Rating form(Rating and feedback page)
+- Events
+- Feedback
+- Contact Us
 
 Kuldip
 
-- Moving and packing services
+- Home
 - About Us
-- Pickup Request form
+- FAQ
 
 Pruthvi
 
-- Contact us
-- Beauticians services
-- Query form
+-
+-
+-
 
 Nayanika
 

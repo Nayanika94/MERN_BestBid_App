@@ -18,7 +18,6 @@ import Footer from "./components/Footer";
 import Thankyou from "./pages/Thankyou";
 import Product_List from "./pages/Product_List";
 import Edit_Profile from "./pages/Edit_Profile";
-import Search from "../src/components/Search";
 import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
