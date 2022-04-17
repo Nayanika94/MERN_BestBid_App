@@ -4,7 +4,6 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import styled from "styled-components";
 import AuthContext from "../context/AuthContext";
 
-
 const Styles = styled.div`
   .navbar {
     background-color: #222;
@@ -28,7 +27,6 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-
             <Nav.Item>
               <Nav.Link as={Link} to="/">
                 Home

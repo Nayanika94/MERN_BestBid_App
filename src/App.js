@@ -40,7 +40,7 @@ const App = () => {
     setIsLoggedIn(false);
   };
   let appRoutes;
-  if (isLoggedIn) {
+  if (!isLoggedIn) {
     appRoutes = (
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -76,7 +76,7 @@ const App = () => {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/payment" element={<Payment />} />
-
+        <Route exact path="HowDoesitWork" element={<HowDoesitWork />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>

@@ -130,4 +130,4 @@ export const HowDoesitWork = () => (
 
     </div>
   </div>
-);
+)

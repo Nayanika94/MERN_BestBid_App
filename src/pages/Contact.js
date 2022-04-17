@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Widget } from "react-chat-widget";
+import { Link, useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const [status, setStatus] = useState("Submit");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +26,11 @@ const Contact = () => {
 
     });
     setStatus("Submit");
+    navigate("/thankyou");
     let result = await response.json();
     alert(result.status);
     console.log(status);
+
   };
 
 

@@ -48,30 +48,7 @@ const Home = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   sendGetRequest();
-  // }, []);
 
-  // const sendGetRequest = async () => {
-  //   try {
-  //     let token = localStorage.getItem("token");
-
-  //     let config = {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "x-auth-token": token,
-  //       },
-  //     };
-
-  //     const response = await axios.get(
-  //       "http://localhost:5000/api/product/",
-  //       config
-  //     );
-  //     setProducts(response.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const handleNewUserMessage = (newMessage) => {
     // console.log(`new message incoming! ${newMessage}`);
@@ -260,30 +237,6 @@ const Home = () => {
     </>
   )
 }
-
-// const Product = (prod) => {
-
-//   return (
-//     <>
-//       <Card style={styles.card} key={prod._id} className="box">
-//         <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
-//         <Card.Body>
-//           <Card.Text>{prod.title}</Card.Text>
-//           <Card.Title>C${prod.price}</Card.Title>
-//         </Card.Body>
-//         <div className="mb-2">
-//           <Button
-//             variant="warning" size="sm" >
-//             <Link to={`/product/${prod._id}`}>Buy Now</Link>
-//           </Button>
-//         </div>
-//         <Card.Footer>
-//           <small className="text-muted">Last updated 3 mins ago</small>
-//         </Card.Footer>
-//       </Card>
-//     </>
-//   );
-// };
 
 
 export default Home;
