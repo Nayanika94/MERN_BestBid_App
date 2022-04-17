@@ -37,7 +37,7 @@ const Profile = () => {
       <Row className="g-4">
         <Col sm={3}>
           <Card>
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" src={profile.photo} />
             <Card.Body>
               <Card.Title>{profile.username}</Card.Title>
               <Button href="/edit-profile" variant="primary">

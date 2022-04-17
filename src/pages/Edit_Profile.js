@@ -5,7 +5,6 @@ import image1 from "../assets/image1.jpg";
 import axios from "axios";
 import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
-import "react-dropzone-uploader/dist/styles.css";
 
 const Edit_Profile = () => {
   const [profile, setProfile] = useState({
@@ -41,7 +40,6 @@ const Edit_Profile = () => {
         "x-auth-token": token,
       },
     };
-    console.log(profile);
     try {
       const response = await axios.put(
         "http://localhost:5000/api/user",
@@ -86,10 +84,33 @@ const Edit_Profile = () => {
       });
       reader.readAsDataURL(e.target.files[0]);
     }
-    console.log(ImageData);
   };
 
-  const updateProfilePicture = async (e) => {};
+  const updateProfilePicture = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append("photo", picture);
+
+      let token = localStorage.getItem("token");
+
+      let config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "x-auth-token": token,
+        },
+      };
+      const response = await axios.post(
+        "http://localhost:5000/api/user/uploadPicture",
+        config,
+        data
+      );
+
+      // navigate("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="container mt-2 mb-2">
       <Modal show={show} onHide={handleClose}>
@@ -102,6 +123,7 @@ const Edit_Profile = () => {
               <input
                 className="fileInput"
                 type="file"
+                name="photo"
                 onChange={onChangePicture}
               />
               <button className="pictureUploadButton" type="submit">
@@ -124,7 +146,7 @@ const Edit_Profile = () => {
       <Row className="g-4">
         <Col sm={3}>
           <Card>
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" src={profile.photo} />
             <Card.Body>
               <Card.Title>{profile.username}</Card.Title>
               <Button variant="primary" className="mr-2" onClick={handleShow}>
