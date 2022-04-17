@@ -34,10 +34,9 @@ const NavigationBar = () => {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link as={Link} to="/product">
-                Product List
+                Products
               </Nav.Link>
             </Nav.Item>
-
             <Nav.Item>
               <Nav.Link as={Link} to="/about">
                 About
@@ -54,12 +53,6 @@ const NavigationBar = () => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} to="/payment">
-                Payment
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
               <Nav.Link as={Link} to="/event">
                 Event
               </Nav.Link>
@@ -67,6 +60,11 @@ const NavigationBar = () => {
             <Nav.Item>
               <Nav.Link as={Link} to="/feedback">
                 Feedback
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/HowDoesitWork">
+                How Auction Works
               </Nav.Link>
             </Nav.Item>
             {auth.isLoggedIn && (
@@ -78,19 +76,6 @@ const NavigationBar = () => {
                 </Nav.Item>
               </>
             )}
-
-
-            {auth.isLoggedIn && (
-              <>
-                <Nav.Item>
-                  <Nav.Link as={Link} to="/HowDoesitWork">
-                    How Auction Works
-                  </Nav.Link>
-                </Nav.Item>
-              </>
-            )}
-
-
             {auth.isLoggedIn ? (
               <Nav.Item>
                 <Nav.Link onClick={auth.logout}>Logout</Nav.Link>
