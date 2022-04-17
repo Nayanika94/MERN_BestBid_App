@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# BestBid
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+Online auctions offer buyers and sellers of a wide variety of goods an enormous platform for trade. They provide buyers with a virtual flea market, with an endless range of merchandise from around the world, and they give sellers a storefront from which to market everything from sports memorabilia to computer systems to millions of international buyers.
 
-### `npm start`
+### How Online Auctions Work
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Internet auctions are like giant online flea markets. Sellers may offer one item at a time or multiple lots of the same item. In theory, online auctions run much like local auctions, but behind the scenes, there is ongoing data collection. Just like local auctions, there are sellers and bidders -- and winners and losers. Winners are expected to pay for what they bid on at the conclusion of the auction. But that is where the similarities between online and local auctions end.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Winning Bids
 
-### `npm test`
+The bidding for each auction closes at the scheduled time. In the case of sales of multiple lots, the participants with the highest bids at the close of the auction are obligated to buy the items. If no one bids at or above the reserve price, the auction closes without a winner. At the close of a successful auction, the buyer and seller communicate, usually by email, to arrange for payment and delivery of the goods.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Targeted Audience and Objective
 
-### `npm run build`
+At BestBid, we create pathways to connect millions of sellers and buyers around the world. Our technology empowers our customers, providing everyone the opportunity to grow and thrive — no matter who they are or where they are in the world.
+Its a multi service provider so its intended to target everyone.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## List of features
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Our project will have a multitude of features to enhance user experience:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Our webiste offers online auction platform of trade for customers to sell or buy goods of different variety.
+We have
 
-### `npm run eject`
+### Task division
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Charmi
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Careers
+- Repair services
+- 24/7 online services(contact us page)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  Dhanushi
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Login/Sign Up(home page)
+- Water delivery services
+- Feed back and Rating form(Rating and feedback page)
 
-## Learn More
+  Kuldip
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Moving and packing services
+- About Us
+- Pickup Request form
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  Pruthvi
 
-### Code Splitting
+- Contact us
+- Beauticians services
+- Query form
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+  Nayanika
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Product List(search)
+- Product(search)
+- Chat Widget
+- Nodemailer(contact us)

@@ -2,18 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { io } from 'socket.io-client';
-// import { Link } from 'react-router-dom';
 import "../App";
-// import axios from 'axios';
-// import { ProductProvider } from "../context/ProductContext";
 import logo from '../logo.svg';
-// import CardGroup from "react-bootstrap/CardGroup";
-// import Card from "react-bootstrap/Card";
-// import { Button } from "react-bootstrap";
-// import { ProductContext } from "../context/ProductContext";
-// import image1 from "../assets/starryNight.jpg";
-// import image3 from "../assets/starryNight.jpg";
-// import starryNight from "../assets/starryNight.jpg";
 import Product_List from "./Product_List";
 
 const socket = io('http://localhost:5000');
