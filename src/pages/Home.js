@@ -2,18 +2,19 @@ import React, { useContext, useEffect } from "react";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { io } from 'socket.io-client';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import "../App";
-import axios from 'axios';
-import { ProductProvider } from "../context/ProductContext";
+// import axios from 'axios';
+// import { ProductProvider } from "../context/ProductContext";
 import logo from '../logo.svg';
-import CardGroup from "react-bootstrap/CardGroup";
-import Card from "react-bootstrap/Card";
-import { Button } from "react-bootstrap";
-import { ProductContext } from "../context/ProductContext";
-import image1 from "../assets/starryNight.jpg";
-import image3 from "../assets/starryNight.jpg";
-import starryNight from "../assets/starryNight.jpg";
+// import CardGroup from "react-bootstrap/CardGroup";
+// import Card from "react-bootstrap/Card";
+// import { Button } from "react-bootstrap";
+// import { ProductContext } from "../context/ProductContext";
+// import image1 from "../assets/starryNight.jpg";
+// import image3 from "../assets/starryNight.jpg";
+// import starryNight from "../assets/starryNight.jpg";
+import Product_List from "./Product_List";
 
 const socket = io('http://localhost:5000');
 
@@ -38,7 +39,7 @@ const styles = {
 
 const Home = () => {
 
-  const { products, setProducts } = useContext(ProductContext);
+  // const { products, setProducts } = useContext(ProductContext);
 
   useEffect(() => {
     addResponseMessage("Welcome to our 24*7 support chat");
@@ -47,30 +48,30 @@ const Home = () => {
     });
   }, []);
 
-  useEffect(() => {
-    sendGetRequest();
-  }, []);
+  // useEffect(() => {
+  //   sendGetRequest();
+  // }, []);
 
-  const sendGetRequest = async () => {
-    try {
-      let token = localStorage.getItem("token");
+  // const sendGetRequest = async () => {
+  //   try {
+  //     let token = localStorage.getItem("token");
 
-      let config = {
-        headers: {
-          "Content-Type": "application/json",
-          "x-auth-token": token,
-        },
-      };
+  //     let config = {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "x-auth-token": token,
+  //       },
+  //     };
 
-      const response = await axios.get(
-        "http://localhost:5000/api/product/",
-        config
-      );
-      setProducts(response.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     const response = await axios.get(
+  //       "http://localhost:5000/api/product/",
+  //       config
+  //     );
+  //     setProducts(response.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const handleNewUserMessage = (newMessage) => {
     // console.log(`new message incoming! ${newMessage}`);
@@ -93,11 +94,9 @@ const Home = () => {
         </div>
 
 
-        <div className="grid">
-          {products.map(Product)}
-          {/* <Product prod={p} key={p._id} />))} */}
-        </div>
+        {/* <div className="grid"> {products.map(Product)}<Product prod={p} key={p._id} />))} </div> */}
 
+        <Product_List />
         <div>
           <h3 className="bg-text sub-topic" > Our Team</h3>
         </div>
@@ -262,29 +261,29 @@ const Home = () => {
   )
 }
 
-const Product = (prod) => {
+// const Product = (prod) => {
 
-  return (
-    <>
-      <Card style={styles.card} key={prod._id} className="box">
-        <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
-        <Card.Body>
-          <Card.Text>{prod.title}</Card.Text>
-          <Card.Title>C${prod.price}</Card.Title>
-        </Card.Body>
-        <div className="mb-2">
-          <Button
-            variant="warning" size="sm" >
-            <Link to={`/product/${prod._id}`}>Buy Now</Link>
-          </Button>
-        </div>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <Card style={styles.card} key={prod._id} className="box">
+//         <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
+//         <Card.Body>
+//           <Card.Text>{prod.title}</Card.Text>
+//           <Card.Title>C${prod.price}</Card.Title>
+//         </Card.Body>
+//         <div className="mb-2">
+//           <Button
+//             variant="warning" size="sm" >
+//             <Link to={`/product/${prod._id}`}>Buy Now</Link>
+//           </Button>
+//         </div>
+//         <Card.Footer>
+//           <small className="text-muted">Last updated 3 mins ago</small>
+//         </Card.Footer>
+//       </Card>
+//     </>
+//   );
+// };
 
 
 export default Home;

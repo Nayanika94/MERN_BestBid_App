@@ -41,7 +41,7 @@ const Product = (props) => {
         <div className="m-4 mainWindow shadow bg-white-rounded p-1">
           <div className="d-flex flex-row flex-no-wrap bg-1">
             <div className="flex-grow-1 m-2">
-              {/* <img className="product-img p-2"  /> */}
+              <img className="product-img p-2" style={{ objectFit: "scale-down", maxWidth: "25rem", margin: "50px" }} src={product.photo} alt={product.id} />
             </div>
             <div className="flex-grow-1 m-2 p-1">
               <div className="d-flex flex-column">
@@ -49,21 +49,24 @@ const Product = (props) => {
                   <h4> {product.title} </h4>
                   <h4>C${product.price}</h4>
                 </div>
-                <div className="seller-name p-1">
+                <div className="">
+                  {/* seller-name p-1 */}
                   <small>{product.date}</small>
                 </div>
-                <div className="item-desc">
+                <div className="">
                   {product.description}
                 </div>
-                <div className="sizes mt-1 pr-1">
+                <div className="">
+                  {/* sizes mt-1 pr-1 */}
                   <br />
+
+                  <input type="number" placeholder={`Min C$${product.price}.00`} />
                   <button
                     type="button"
                     className="btn btn-xs mb-1 btn-primary mr-3"
                   >
                     Place Bid
                   </button>
-                  <input type="number" placeholder="Min C$30000.00" />
                 </div>
               </div>
             </div>

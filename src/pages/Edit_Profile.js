@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Breadcrumb, Card, Button, Row, Col, Tabs, Tab } from "react-bootstrap";
-import image1 from "../assets/image1.jpg";
+// import image1 from "../assets/image1.jpg";
 import axios from "axios";
 import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
@@ -78,7 +78,7 @@ const Edit_Profile = () => {
       <Row className="g-4">
         <Col sm={3}>
           <Card>
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" />
             <Card.Body>
               <Card.Title>{profile.username}</Card.Title>
               <Card.Text>

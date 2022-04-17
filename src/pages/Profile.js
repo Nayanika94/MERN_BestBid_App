@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Breadcrumb, Card, Button, Row, Col, Tabs, Tab } from "react-bootstrap";
-import image1 from "../assets/image1.jpg";
+// import image1 from "../assets/image1.jpg";
 import decode from "jwt-decode";
 import axios from "axios";
 
@@ -43,7 +43,7 @@ const Profile = () => {
       <Row className="g-4">
         <Col sm={3}>
           <Card>
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" />
             <Card.Body>
               <Card.Title>{profile.username}</Card.Title>
               <Card.Text>
