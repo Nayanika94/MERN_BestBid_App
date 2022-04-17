@@ -21,10 +21,12 @@ Its a multi service provider so its intended to target everyone.
 
 Our project will have a multitude of features to enhance user experience:
 
-- Our webiste offers online auction platform of trade for customers to sell or buy goods of different variety.
-- Customers can provide feedback to us by filling the form,thus we can improve our system keeping in mind their valuable feedbacks.
-- Users can view the list of Auction events through the event page.
-- Chat widget with 24/7 customer support
+- Our webiste offers online auction platform of trade for customers to sell or buy goods of different variety
+- Our customers can view all the products listed for auction and search the products listed by name.
+- Customers can provide feedback to us by filling the form,thus we can improve our system keeping in mind their valuable feedbacks
+- Users can view the list of Auction events through the event page
+- Realtime Chat widget with 24/7 customer support
+- Our customers can fill the contact us form and receive response from us
 - Our page will have responsive layout that changes with the view port depending on available space or resize fonts
 
 ### Task division
