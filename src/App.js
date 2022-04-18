@@ -24,7 +24,6 @@ import AuthContext from "./context/AuthContext";
 import { HowDoesitWork } from "./pages/HowDoesitWork";
 import { ProductProvider } from "./context/ProductContext";
 
-
 const socket = io.connect("http://localhost:5000");
 
 const App = () => {
@@ -38,8 +37,9 @@ const App = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
+
   let appRoutes;
-  if (!isLoggedIn) {
+  if (isLoggedIn) {
     appRoutes = (
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -76,7 +76,6 @@ const App = () => {
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="HowDoesitWork" element={<HowDoesitWork />} />
-
         <Route path="*" element={<NoMatch />} />
       </Routes>
     );

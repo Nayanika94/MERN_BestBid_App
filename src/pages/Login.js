@@ -37,6 +37,7 @@ const Login = () => {
       );
 
       localStorage.setItem("token", response.data.token);
+      auth.login();
       navigate("/");
     } catch (err) {
       console.log(err);
