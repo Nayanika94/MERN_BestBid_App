@@ -106,7 +106,7 @@ const Product = (prod) => {
       <Card style={styles.card} key={prod._id} className="box">
         <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
         <Card.Body>
-          <Card.Text>{prod.title}</Card.Text>
+          <Card.Text >{prod.title}</Card.Text>
           <Card.Title>C${prod.price}</Card.Title>
         </Card.Body>
         <div className="mb-2">

@@ -99,7 +99,7 @@ const Product = (props) => {
 
   return (
 
-    <div className="container" style={{ width: "800px" }}>
+    <div className="container" style={{ width: "800px" }} ><h4 style={{ textAlign: "center" }}>Product Detail</h4>
       <div className="container m-auto">
         <div className="m-4 mainWindow shadow bg-white-rounded p-1">
           <div className="d-flex flex-row flex-no-wrap">
@@ -109,11 +109,11 @@ const Product = (props) => {
             <div class="vr"></div>
             <div className="flex-grow-1 m-2 p-1">
               <div className="d-flex flex-column">
-                <div className="title" style={{}}>
+                <div className="title" >
                   <h4> {product.title} </h4>
                 </div>
 
-                <div className="">
+                <div className="desc" style={{ fontSize: "15px" }}>
                   {product.description}
                 </div>
                 <h4>C${product.price}</h4>
@@ -141,7 +141,7 @@ const Product = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
 
   );
 };
