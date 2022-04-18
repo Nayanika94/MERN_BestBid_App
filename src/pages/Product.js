@@ -222,41 +222,8 @@ const Product = (props) => {
 
 export default Product;
 
-{
-  /* <div className="container">
-<div className="container m-auto">
-  <div className="m-4 mainWindow shadow bg-white-rounded p-1">
-    <div className="d-flex flex-row flex-no-wrap">
-      <div className="flex-grow-1 m-2" style={styles.photo}>
-        <img className="product-img p-2" style={{ objectFit: "scale-down", maxWidth: "25rem", margin: "px" }} src={product.photo} alt={product.id} />
-      </div>
-      <div className="flex-grow-1 m-2 p-1">
-        <div className="d-flex flex-column">
-          <div className="">
-            <h4> {product.title} </h4>
-          </div>
-          <div className="">
-            {product.description}
-          </div>
-          <h4>C${product.price}</h4>
-          <div className="mt-1 pr-1">
-            <input type="number" placeholder={`Min C$${product.price}.00`} />
-          </div>
-          <div className="mt-4 pr-2">
-            <button style={styles.button}
-              type="button"
-              className="btn btn-xs mb-1 btn-primary mr-3"
-            >
-              Place Bid
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div> */
-}
+
+
 
 // <div className="container">
 //   <div className="col-lg-8 border p-3 main-section bg-white">
