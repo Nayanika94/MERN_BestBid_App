@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Button, Row, Col, Modal } from "react-bootstrap";
-import image1 from "../assets/image1.jpg";
 import axios from "axios";
 import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
