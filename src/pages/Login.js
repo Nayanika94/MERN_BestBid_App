@@ -39,11 +39,13 @@ const Login = () => {
 
       localStorage.setItem("token", response.data.token);
       auth.login();
+      console.log(response.data);
       navigate("/");
     } catch (err) {
-      if (err.response.data) {
-        setErrorMessage(err.response.data.errors);
-      }
+      console.log(err);
+      // if (err.response.data) {
+      //   setErrorMessage(err.response.data.errors);
+      // }
     }
   };
   return (
