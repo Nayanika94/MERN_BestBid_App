@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import styled from "styled-components";
 import AuthContext from "../context/AuthContext";
 
@@ -25,7 +25,7 @@ const Styles = styled.div`
 `;
 
 const NavigationBar = () => {
-  const { isLoggedIn } = useContext(AuthContext);
+  const auth = useContext(AuthContext);
   return (
     <Styles>
       <Navbar expand="lg">
@@ -73,7 +73,7 @@ const NavigationBar = () => {
                 How Auction Works
               </Nav.Link>
             </Nav.Item>
-            {isLoggedIn && (
+            {auth.isLoggedIn && (
               <>
                 <Nav.Item>
                   <Nav.Link as={Link} to="/profile">
@@ -82,9 +82,9 @@ const NavigationBar = () => {
                 </Nav.Item>
               </>
             )}
-            {isLoggedIn ? (
+            {auth.isLoggedIn ? (
               <Nav.Item>
-                <Nav.Link >Logout</Nav.Link>
+                <Nav.Link onClick={auth.logout}>Logout</Nav.Link>
               </Nav.Item>
             ) : (
               <>

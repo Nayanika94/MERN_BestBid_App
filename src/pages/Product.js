@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import decode from "jwt-decode";
 
 const styles = {
   card: {
@@ -68,6 +70,11 @@ const styles = {
 const Product = (props) => {
   let { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [bid, setBid] = useState([]);
+  const [price, setPrice] = useState();
+  const [bidMessage, setBidMessage] = useState();
+
+  let decodeddata = decode(localStorage.getItem("token"));
 
   useEffect(() => {
     sendGetRequest();
@@ -79,7 +86,6 @@ const Product = (props) => {
 
       let config = {
         headers: {
-          "Content-Type": "application/json",
           "x-auth-token": token,
         },
       };
@@ -89,13 +95,54 @@ const Product = (props) => {
         config
       );
       setProduct(response.data);
+
+      const response1 = await axios.get(
+        `http://localhost:5000/api/bid/onProduct/${id}`,
+        config
+      );
+      if (response1.data != "") {
+        setBid(response1.data);
+        setBidMessage(
+          "Last bid " +
+            Math.floor(
+              Math.abs(new Date() - new Date(response1.data.date)) / 60000
+            ) +
+            " minutes ago, $" +
+            response1.data.bid
+        );
+      }
     } catch (err) {
       console.log(err);
     }
   };
 
-  const placeBid = () => {
-    console.log("here");
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let token = localStorage.getItem("token");
+    let config = {
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": token,
+      },
+    };
+    let data = {
+      bid: price,
+      productId: product._id,
+      userId: decodeddata.user.id,
+    };
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/bid",
+        data,
+        config
+      );
+      if (response.status == 200) {
+        window.location.reload(false);
+        console.log(response);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -130,27 +177,40 @@ const Product = (props) => {
                 {/* <div className="mt-1 pr-1">
                   <input type="number" placeholder={`Min C$${product.price}.00`} />
                 </div> */}
-                <div className="input-group mb-3">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">$</span>
+                {bidMessage && <p>{bidMessage}</p>}
+                <form class="m-3 w-50" onSubmit={(e) => onSubmit(e)}>
+                  <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text">$</span>
+                    </div>
+                    <input
+                      type="number"
+                      className="form-control"
+                      value={price}
+                      onChange={(event) => setPrice(event.target.value)}
+                      aria-label="Amount (to the nearest dollar)"
+                      placeholder={`Min C$${
+                        bid != ""
+                          ? parseInt(bid.bid) + 50
+                          : parseInt(product.price) + 50
+                      }.00`}
+                      min={
+                        bid != ""
+                          ? parseInt(bid.bid) + 50
+                          : parseInt(product.price) + 50
+                      }
+                    />
                   </div>
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-label="Amount (to the nearest dollar)"
-                    placeholder={`Min C$${product.price}.00`}
-                  />
-                </div>
-                <div className="mt-1 pr-2">
-                  <button
-                    onClick={placeBid}
-                    style={styles.button}
-                    type="button"
-                    className="btn btn-xs mb-1 btn-primary mr-3"
-                  >
-                    Place Bid
-                  </button>
-                </div>
+                  <div className="mt-1 pr-2">
+                    <button
+                      type="submit"
+                      style={styles.button}
+                      className="btn btn-xs mb-1 btn-primary mr-3"
+                    >
+                      Place Bid
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -161,9 +221,6 @@ const Product = (props) => {
 };
 
 export default Product;
-
-
-
 
 // <div className="container">
 //   <div className="col-lg-8 border p-3 main-section bg-white">

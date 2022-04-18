@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -27,7 +27,7 @@ import { ProductProvider } from "./context/ProductContext";
 const socket = io.connect("http://localhost:5000");
 
 const App = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState("false");
 
   const login = () => {
     setIsLoggedIn(true);

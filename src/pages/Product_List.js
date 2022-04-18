@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "../components/Box.css";
 import { Widget } from "react-chat-widget";
 import Card from "react-bootstrap/Card";
@@ -30,27 +30,22 @@ const styles = {
 };
 
 export const Product_List = () => {
-
-
   const { products, setProducts } = useContext(ProductContext);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchByName, setSearchByName] = useState('');
-
+  const [searchByName, setSearchByName] = useState("");
 
   const filterProduct = (name) => {
-    name ? setSearchByName(name) : setSearchByName('');
+    name ? setSearchByName(name) : setSearchByName("");
   };
 
   useEffect(() => {
-
     if (products.length) {
-
       let nameValue = searchByName.toLowerCase().trim();
       if (nameValue) {
-        const filteredProducts = products.filter(p => {
+        const filteredProducts = products.filter((p) => {
           return p.title.toLowerCase().includes(nameValue);
-        })
+        });
         setFilteredProducts(filteredProducts);
       } else setFilteredProducts(products);
     }
@@ -83,11 +78,6 @@ export const Product_List = () => {
   return (
     <div>
       <div className="product_list container">
-        {/* <Breadcrumb className="">
-          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-          <Breadcrumb.Item href="#">Library</Breadcrumb.Item>
-          <Breadcrumb.Item active>Data</Breadcrumb.Item>
-        </Breadcrumb> */}
         <Search onFilterProduct={filterProduct} />
         <div className="grid">
           {filteredProducts.map(Product)}
@@ -100,19 +90,26 @@ export const Product_List = () => {
 };
 
 const Product = (prod) => {
-
   return (
     <>
       <Card style={styles.card} key={prod._id} className="box">
         <Card.Img variant="top" src={prod.photo} style={styles.cardImage} />
         <Card.Body>
-          <Card.Text >{prod.title}</Card.Text>
+          <Card.Text>{prod.title}</Card.Text>
           <Card.Title>C${prod.price}</Card.Title>
         </Card.Body>
         <div className="mb-2">
-          <Button style={{ textTransform: "uppercase" }}
-            variant="warning" size="sm" >
-            <Link style={{ textDecoration: "none", color: "black" }} to={`/product/${prod._id}`}>Buy Now</Link>
+          <Button
+            style={{ textTransform: "uppercase" }}
+            variant="warning"
+            size="sm"
+          >
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to={`/product/${prod._id}`}
+            >
+              Buy Now
+            </Link>
           </Button>
         </div>
         {/* <Card.Footer>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Breadcrumb, Card, Button, Row, Col, Tabs, Tab } from "react-bootstrap";
+import { Card, Button, Row, Col, Tabs, Tab, Table } from "react-bootstrap";
 import image1 from "../assets/image1.jpg";
 import decode from "jwt-decode";
 import axios from "axios";
 
 const Profile = () => {
   const [profile, setProfile] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [bids, setBids] = useState([]);
 
   let decodeddata = decode(localStorage.getItem("token"));
   let imagepath = decodeddata.user.profileImage;
@@ -28,6 +30,18 @@ const Profile = () => {
         config
       );
       setProfile(response.data);
+
+      const response1 = await axios.get(
+        `http://localhost:5000/api/productsSold/${decodeddata.user.id}`,
+        config
+      );
+      setProducts(response1.data);
+
+      const response2 = await axios.get(
+        `http://localhost:5000/api/bid/byUser/${decodeddata.user.id}`,
+        config
+      );
+      setBids(response2.data);
     } catch (err) {
       console.log(err);
     }
@@ -78,32 +92,36 @@ const Profile = () => {
                 className="mb-3"
               >
                 <Tab eventKey="purchased" title="Purchased Items">
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                  </p>
+                  <div>
+                    <Table responsive>
+                      <thead>
+                        <tr>
+                          <th>Product Id</th>
+                          <th>Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {products.map((t) => (
+                          <Product product={t} key={t._id} />
+                        ))}
+                      </tbody>
+                    </Table>
+                  </div>
                 </Tab>
                 <Tab eventKey="bid" title="Total Bid">
-                  <p>This is total bids</p>
-                </Tab>
-                <Tab eventKey="wallet" title="Wallet">
-                  <p>
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a piece of classical Latin literature
-                    from 45 BC, making it over 2000 years old. Richard
-                    McClintock, a Latin professor at Hampden-Sydney College in
-                    Virginia, looked up one of the more obscure Latin words,
-                    consectetur, from a Lorem Ipsum passage, and going through
-                    the cites
-                  </p>
+                  <Table responsive>
+                    <thead>
+                      <tr>
+                        <th>Product Id</th>
+                        <th>Bid</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {bids.map((t) => (
+                        <Bid bid={t} key={t._id} />
+                      ))}
+                    </tbody>
+                  </Table>
                 </Tab>
               </Tabs>
             </Card.Body>
@@ -111,6 +129,24 @@ const Profile = () => {
         </Col>
       </Row>
     </div>
+  );
+};
+
+const Product = ({ product }) => {
+  return (
+    <tr>
+      <td>{product._id}</td>
+      <td>{product.price}</td>
+    </tr>
+  );
+};
+
+const Bid = ({ bid }) => {
+  return (
+    <tr>
+      <td>{bid.productId}</td>
+      <td>{bid.bid}</td>
+    </tr>
   );
 };
 
