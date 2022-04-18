@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 const styles = {
   card: {
@@ -10,14 +10,15 @@ const styles = {
     top: "50%",
     left: "20%",
     transform: "translate(-50%, -0%)",
-    boxShadow: "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)",
+    boxShadow:
+      "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)",
     transition: "all 0.3s",
   },
   photo: {
     padding: "30px",
     width: "45%",
     textAlign: "center",
-    float: "left"
+    float: "left",
   },
   img: {
     maxHeight: "240px",
@@ -61,16 +62,12 @@ const styles = {
     marginRight: "5px",
     transition: "all 0.3s ease",
     fontWeight: "500",
-  }
-}
-
+  },
+};
 
 const Product = (props) => {
-
-
   let { id } = useParams();
   const [product, setProduct] = useState([]);
-
 
   useEffect(() => {
     sendGetRequest();
@@ -97,19 +94,32 @@ const Product = (props) => {
     }
   };
 
-  return (
+  const placeBid = () => {
+    console.log("here");
+  };
 
-    <div className="container" style={{ width: "800px" }} ><h4 style={{ textAlign: "center" }}>Product Detail</h4>
+  return (
+    <div className="container" style={{ width: "800px" }}>
+      <h4 style={{ textAlign: "center" }}>Product Detail</h4>
       <div className="container m-auto">
         <div className="m-4 mainWindow shadow bg-white-rounded p-1">
           <div className="d-flex flex-row flex-no-wrap">
             <div className="flex-grow-1 m-2" style={styles.photo}>
-              <img className="product-img p-2" style={{ objectFit: "scale-down", maxWidth: "15rem", margin: "px" }} src={product.photo} alt={product.id} />
+              <img
+                className="product-img p-2"
+                style={{
+                  objectFit: "scale-down",
+                  maxWidth: "15rem",
+                  margin: "px",
+                }}
+                src={product.photo}
+                alt={product.id}
+              />
             </div>
             <div class="vr"></div>
             <div className="flex-grow-1 m-2 p-1">
               <div className="d-flex flex-column">
-                <div className="title" >
+                <div className="title">
                   <h4> {product.title} </h4>
                 </div>
 
@@ -124,25 +134,29 @@ const Product = (props) => {
                   <div className="input-group-prepend">
                     <span className="input-group-text">$</span>
                   </div>
-                  <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder={`Min C$${product.price}.00`} />
-
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                    placeholder={`Min C$${product.price}.00`}
+                  />
                 </div>
                 <div className="mt-1 pr-2">
-                  <button style={styles.button}
+                  <button
+                    onClick={placeBid}
+                    style={styles.button}
                     type="button"
                     className="btn btn-xs mb-1 btn-primary mr-3"
                   >
                     Place Bid
                   </button>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   );
 };
 
@@ -151,3 +165,44 @@ export default Product;
 
 
 
+// <div className="container">
+//   <div className="col-lg-8 border p-3 main-section bg-white">
+//     <div className="row m-0">
+//       <div className="col-lg-4 left-side-product-box pb-3">
+//         <img className="product-img p-2" style={{ objectFit: "scale-down", maxWidth: "25rem", margin: "50px" }} src={product.photo} alt={product.id} class="border p-3" />
+//       </div>
+//       <div className="col-lg-8">
+//         <div className="right-side-pro-detail border p-3 m-0">
+//           <div className="row">
+//             <div className="col-lg-12">
+//               <p class="m-0 p-0">{product.title}</p>
+//             </div>
+//             <div className="col-lg-12">
+//               <p className="m-0 p-0 price-pro">${product.price}</p>
+//               <hr className="p-0 m-0" />
+//             </div>
+//             <div className="col-lg-12 pt-2">
+//               <h5>Product Detail</h5>
+//               <span>{product.description}</span>
+//               <hr className="m-0 pt-2 mt-2" />
+//             </div>
+//             <div className="sizes mt-1 pr-1">
+//               {/**/}
+//               <br />
+
+//               <input type="number" placeholder={`Min C$${product.price}.00`} />
+//               <div >
+//                 <button
+//                   type="button"
+//                   className="btn btn-xs mb-1 btn-primary mr-3"
+//                 >
+//                   Place Bid
+//                 </button>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
