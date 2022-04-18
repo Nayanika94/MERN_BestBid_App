@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
+import { Alert } from "react-bootstrap";
 
 const Login = () => {
   const auth = useContext(AuthContext);
@@ -12,6 +12,7 @@ const Login = () => {
     password: "",
   });
   const { email, password } = formData;
+  const [errorMessage, setErrorMessage] = useState();
 
   const onChange = (e) => {
     setFromDate({ ...formData, [e.target.name]: e.target.value });
@@ -40,7 +41,9 @@ const Login = () => {
       auth.login();
       navigate("/");
     } catch (err) {
-      console.log(err);
+      if (err.response.data) {
+        setErrorMessage(err.response.data.errors);
+      }
     }
   };
   return (
@@ -48,6 +51,14 @@ const Login = () => {
       <h3>Log in</h3>
 
       <form className="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
+        {errorMessage && (
+          <div className="error">
+            <Alert variant="danger" dismissible>
+              <Alert.Heading>Error</Alert.Heading>
+              <p>{errorMessage}</p>
+            </Alert>
+          </div>
+        )}
         <div className="form-group">
           <label>Email</label>
           <input

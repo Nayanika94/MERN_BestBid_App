@@ -50,8 +50,6 @@ const App = () => {
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/payment" element={<Payment />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/register" element={<Register />} />
         <Route exact path="/event" element={<Events />} />
         <Route exact path="/thankyou" element={<Thankyou />} />
         <Route exact path="/feedback" element={<Feedback />} />
@@ -74,7 +72,6 @@ const App = () => {
         <Route exact path="/thankyou" element={<Thankyou />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/feedback" element={<Feedback />} />
-        <Route exact path="/payment" element={<Payment />} />
         <Route exact path="HowDoesitWork" element={<HowDoesitWork />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>

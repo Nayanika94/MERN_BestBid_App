@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
+import { Alert } from "react-bootstrap";
 
 export const Register = () => {
   const auth = useContext(AuthContext);
@@ -14,6 +15,7 @@ export const Register = () => {
     confirmPassword: "",
   });
   const { email, username, password, confirmPassword } = formData2;
+  const [errorMessage, setErrorMessage] = useState();
 
   const onChange = (e) => {
     setFromDate({ ...formData2, [e.target.name]: e.target.value });
@@ -44,12 +46,22 @@ export const Register = () => {
       console.log(decode(response.data.token));
       navigate("/login");
     } catch (err) {
-      console.log(err);
+      if (err.response.data) {
+        setErrorMessage(err.response.data.errors);
+      }
     }
   };
   return (
     <div className="d-flex justify-content-center">
       <form className="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
+        {errorMessage && (
+          <div className="error">
+            <Alert variant="danger" dismissible>
+              <Alert.Heading>Error</Alert.Heading>
+              <p>{errorMessage}</p>
+            </Alert>
+          </div>
+        )}
         <h3>Register</h3>
 
         <div className="form-group">
