@@ -11,8 +11,14 @@ const Styles = styled.div`
   a,
   .navbar-brand,
   .navbar-nav .nav-link {
-    color: #bbb;
+    color: white;
+    &:visited{
+      color: #e0b0ff;
+    }
     &:hover {
+      color: #e0b0ff;
+    }
+    &:active{
       color: white;
     }
   }
