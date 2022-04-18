@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import decode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
 import { Alert } from "react-bootstrap";
 
@@ -23,6 +22,7 @@ export const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage("");
 
     let config = {
       headers: {
@@ -33,7 +33,6 @@ export const Register = () => {
     data.append("username", username);
     data.append("email", email);
     data.append("password", password);
-    console.log(data);
     try {
       const response = await axios.post(
         "http://localhost:5000/api/registerUser",
@@ -41,13 +40,13 @@ export const Register = () => {
         config
       );
 
-      console.log(response);
       localStorage.setItem("token", response.data.token);
-      console.log(decode(response.data.token));
-      navigate("/login");
+      auth.login();
+      navigate("/");
     } catch (err) {
-      if (err.response.data) {
-        setErrorMessage(err.response.data.errors);
+      console.log(err.response.data.errors[0].msg);
+      for (const error of err.response.data.errors) {
+        setErrorMessage(errorMessage + "\n" + error.msg);
       }
     }
   };
@@ -79,7 +78,7 @@ export const Register = () => {
         <div className="form-group">
           <label>Email</label>
           <input
-            type="text"
+            type="email"
             className="form-control"
             placeholder="Enter email"
             name="email"
@@ -95,6 +94,7 @@ export const Register = () => {
             className="form-control"
             placeholder="Enter password"
             name="password"
+            min="5"
             value={password}
             onChange={(e) => onChange(e)}
           />

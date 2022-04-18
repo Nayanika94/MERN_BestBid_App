@@ -30,10 +30,12 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState("false");
 
   const login = () => {
+    console.log("login");
     setIsLoggedIn(true);
   };
 
   const logout = () => {
+    console.log("logout");
     localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
