@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import decode from "jwt-decode";
 
 const styles = {
   card: {
@@ -71,8 +72,9 @@ const Product = (props) => {
   const [product, setProduct] = useState([]);
   const [bid, setBid] = useState([]);
   const [price, setPrice] = useState();
-  const navigate = useNavigate();
   const [bidMessage, setBidMessage] = useState();
+
+  let decodeddata = decode(localStorage.getItem("token"));
 
   useEffect(() => {
     sendGetRequest();
@@ -103,10 +105,7 @@ const Product = (props) => {
         setBidMessage(
           "Last bid " +
             Math.floor(
-              (Math.abs(new Date() - new Date(response1.data.date)) /
-                1000 /
-                60) %
-                60
+              Math.abs(new Date() - new Date(response1.data.date)) / 60000
             ) +
             " minutes ago, $" +
             response1.data.bid
@@ -129,6 +128,7 @@ const Product = (props) => {
     let data = {
       bid: price,
       productId: product._id,
+      userId: decodeddata.user.id,
     };
     try {
       const response = await axios.post(
@@ -221,9 +221,6 @@ const Product = (props) => {
 };
 
 export default Product;
-
-
-
 
 // <div className="container">
 //   <div className="col-lg-8 border p-3 main-section bg-white">

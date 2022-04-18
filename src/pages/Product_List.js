@@ -71,9 +71,6 @@ export const Product_List = () => {
         config
       );
       setProducts(response.data);
-      response.data.forEach((product) => {
-        console.log(product);
-      });
     } catch (err) {
       console.log(err);
     }
