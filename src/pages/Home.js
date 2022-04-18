@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { io } from 'socket.io-client';
@@ -9,27 +9,7 @@ import Product_List from "./Product_List";
 const socket = io('http://localhost:5000');
 
 
-const styles = {
-  cardGroup: {
-    margin: "1rem",
-  },
-  card: {
-    borderRadius: 10,
-    padding: "5px",
-  },
-  cardImage: {
-    borderRadius: 0,
-    height: "80%",
-    width: "auto",
-    padding: "5px",
-  }
-};
-
-
-
 const Home = () => {
-
-  // const { products, setProducts } = useContext(ProductContext);
 
   useEffect(() => {
     addResponseMessage("Welcome to our 24*7 support chat");
@@ -37,8 +17,6 @@ const Home = () => {
       addResponseMessage(message);
     });
   }, []);
-
-
 
   const handleNewUserMessage = (newMessage) => {
     // console.log(`new message incoming! ${newMessage}`);
@@ -59,10 +37,6 @@ const Home = () => {
         <div>
           <h3 className="bg-text sub-topic" > Our Ongoing Deals</h3>
         </div>
-
-
-        {/* <div className="grid"> {products.map(Product)}<Product prod={p} key={p._id} />))} </div> */}
-
         <Product_List />
         <div>
           <h3 className="bg-text sub-topic" > Our Team</h3>
