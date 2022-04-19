@@ -34,9 +34,9 @@ Our project will have a multitude of features to enhance user experience:
 ```
 Charmi
 
--
--
--
+-Login/Logout
+-Register
+-How auction works
 
 Dhanushi
 
