@@ -22,9 +22,8 @@ import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
 import { HowDoesitWork } from "./pages/HowDoesitWork";
-import { ProductProvider } from "./context/ProductContext";
 
-const socket = io.connect(process.env.REACT_APP_API_URL);
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState("false");
@@ -83,13 +82,13 @@ const App = () => {
     <AuthContext.Provider
       value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
     >
-      <ProductProvider>
-        <BrowserRouter>
-          <NavigationBar />
-          <Layout>{appRoutes}</Layout>
-          <Footer />
-        </BrowserRouter>
-      </ProductProvider>
+
+      <BrowserRouter>
+        <NavigationBar />
+        <Layout>{appRoutes}</Layout>
+        <Footer />
+      </BrowserRouter>
+
     </AuthContext.Provider>
   );
 };

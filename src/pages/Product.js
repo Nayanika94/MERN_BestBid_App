@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import decode from "jwt-decode";
 
 const styles = {
@@ -104,11 +103,11 @@ const Product = (props) => {
         setBid(response1.data);
         setBidMessage(
           "Last bid " +
-            Math.floor(
-              Math.abs(new Date() - new Date(response1.data.date)) / 60000
-            ) +
-            " minutes ago, $" +
-            response1.data.bid
+          Math.floor(
+            Math.abs(new Date() - new Date(response1.data.date)) / 60000
+          ) +
+          " minutes ago, $" +
+          response1.data.bid
         );
       }
     } catch (err) {
@@ -174,9 +173,6 @@ const Product = (props) => {
                   {product.description}
                 </div>
                 <h4>C${product.price}</h4>
-                {/* <div className="mt-1 pr-1">
-                  <input type="number" placeholder={`Min C$${product.price}.00`} />
-                </div> */}
                 {bidMessage && <p>{bidMessage}</p>}
                 <form class="m-3 w-50" onSubmit={(e) => onSubmit(e)}>
                   <div className="input-group mb-3">
@@ -189,11 +185,10 @@ const Product = (props) => {
                       value={price}
                       onChange={(event) => setPrice(event.target.value)}
                       aria-label="Amount (to the nearest dollar)"
-                      placeholder={`Min C$${
-                        bid != ""
-                          ? parseInt(bid.bid) + 50
-                          : parseInt(product.price) + 50
-                      }.00`}
+                      placeholder={`Min C$${bid != ""
+                        ? parseInt(bid.bid) + 50
+                        : parseInt(product.price) + 50
+                        }.00`}
                       min={
                         bid != ""
                           ? parseInt(bid.bid) + 50
@@ -222,44 +217,3 @@ const Product = (props) => {
 
 export default Product;
 
-// <div className="container">
-//   <div className="col-lg-8 border p-3 main-section bg-white">
-//     <div className="row m-0">
-//       <div className="col-lg-4 left-side-product-box pb-3">
-//         <img className="product-img p-2" style={{ objectFit: "scale-down", maxWidth: "25rem", margin: "50px" }} src={product.photo} alt={product.id} class="border p-3" />
-//       </div>
-//       <div className="col-lg-8">
-//         <div className="right-side-pro-detail border p-3 m-0">
-//           <div className="row">
-//             <div className="col-lg-12">
-//               <p class="m-0 p-0">{product.title}</p>
-//             </div>
-//             <div className="col-lg-12">
-//               <p className="m-0 p-0 price-pro">${product.price}</p>
-//               <hr className="p-0 m-0" />
-//             </div>
-//             <div className="col-lg-12 pt-2">
-//               <h5>Product Detail</h5>
-//               <span>{product.description}</span>
-//               <hr className="m-0 pt-2 mt-2" />
-//             </div>
-//             <div className="sizes mt-1 pr-1">
-//               {/**/}
-//               <br />
-
-//               <input type="number" placeholder={`Min C$${product.price}.00`} />
-//               <div >
-//                 <button
-//                   type="button"
-//                   className="btn btn-xs mb-1 btn-primary mr-3"
-//                 >
-//                   Place Bid
-//                 </button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-// </div>
