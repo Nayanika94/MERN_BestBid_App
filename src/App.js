@@ -24,7 +24,7 @@ import AuthContext from "./context/AuthContext";
 import { HowDoesitWork } from "./pages/HowDoesitWork";
 import { ProductProvider } from "./context/ProductContext";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect(process.env.REACT_APP_API_URL);
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState("false");

@@ -91,13 +91,13 @@ const Product = (props) => {
       };
 
       const response = await axios.get(
-        `http://localhost:5000/api/product/${id}`,
+        process.env.REACT_APP_API_URL + `/api/product/${id}`,
         config
       );
       setProduct(response.data);
 
       const response1 = await axios.get(
-        `http://localhost:5000/api/bid/onProduct/${id}`,
+        process.env.REACT_APP_API_URL + `/api/bid/onProduct/${id}`,
         config
       );
       if (response1.data != "") {
@@ -132,7 +132,7 @@ const Product = (props) => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/bid",
+        process.env.REACT_APP_API_URL + "/api/bid",
         data,
         config
       );

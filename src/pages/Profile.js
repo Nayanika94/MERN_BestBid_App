@@ -26,19 +26,21 @@ const Profile = () => {
         },
       };
       const response = await axios.get(
-        "http://localhost:5000/api/auth?",
+        process.env.REACT_APP_API_URL + "/api/auth?",
         config
       );
       setProfile(response.data);
 
       const response1 = await axios.get(
-        `http://localhost:5000/api/productsSold/${decodeddata.user.id}`,
+        process.env.REACT_APP_API_URL +
+          `/api/productsSold/${decodeddata.user.id}`,
         config
       );
       setProducts(response1.data);
 
       const response2 = await axios.get(
-        `http://localhost:5000/api/bid/byUser/${decodeddata.user.id}`,
+        process.env.REACT_APP_API_URL +
+          `/api/bid/byUser/${decodeddata.user.id}`,
         config
       );
       setBids(response2.data);

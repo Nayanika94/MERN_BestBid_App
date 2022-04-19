@@ -67,7 +67,7 @@ export const Product_List = () => {
       };
 
       const response = await axios.get(
-        "http://localhost:5000/api/product/",
+        process.env.REACT_APP_API_URL + "/api/product/",
         config
       );
       setProducts(response.data);

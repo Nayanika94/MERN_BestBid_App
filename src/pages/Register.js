@@ -35,7 +35,7 @@ export const Register = () => {
     data.append("password", password);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/registerUser",
+        process.env.REACT_APP_API_URL + "/api/registerUser",
         data,
         config
       );
