@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
 import AuthContext from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Styles = styled.div`
   .navbar {
@@ -83,9 +84,11 @@ const NavigationBar = () => {
               </>
             )}
             {auth.isLoggedIn ? (
-              <Nav.Item>
-                <Nav.Link onClick={auth.logout}>Logout</Nav.Link>
-              </Nav.Item>
+              <>
+                <Nav.Item>
+                  <Nav.Link onClick={auth.logout}>Logout</Nav.Link>
+                </Nav.Item>
+              </>
             ) : (
               <>
                 <Nav.Item>

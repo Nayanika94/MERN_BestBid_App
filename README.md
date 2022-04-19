@@ -52,9 +52,10 @@ Kuldip
 
 Pruthvi
 
--
--
--
+- Bidding on product
+- Profile
+- Edit Profile
+- Bidding on product list
 
 Nayanika
 
