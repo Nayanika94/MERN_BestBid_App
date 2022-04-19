@@ -1,45 +1,45 @@
 import React, { useEffect } from "react";
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
-import { io } from 'socket.io-client';
+import { io } from "socket.io-client";
 import "../App";
-import logo from '../logo.svg';
+import logo from "../logo.svg";
 import Product_List from "./Product_List";
 
-const socket = io('http://localhost:5000');
-
+const socket = io(process.env.REACT_APP_API_URL);
 
 const Home = () => {
-
   useEffect(() => {
     addResponseMessage("Welcome to our 24*7 support chat");
-    socket.on('receive-message', (message) => {
+    socket.on("receive-message", (message) => {
       addResponseMessage(message);
     });
   }, []);
 
   const handleNewUserMessage = (newMessage) => {
     // console.log(`new message incoming! ${newMessage}`);
-    socket.emit('send-message', newMessage);
+    socket.emit("send-message", newMessage);
     //now send message to backend API
   };
 
   return (
     <>
-
       <div className="container">
         <div className="row">
           <div className="bg-image">
             <h1 className="bg-text">Find Your Next Deal</h1>
-            <h6 className="bg-text">Online Auction is where everyone goes to shop, sell,and give, while discovering variety and affordability.</h6>
+            <h6 className="bg-text">
+              Online Auction is where everyone goes to shop, sell,and give,
+              while discovering variety and affordability.
+            </h6>
           </div>
         </div>
         <div>
-          <h3 className="bg-text sub-topic" > Our Ongoing Deals</h3>
+          <h3 className="bg-text sub-topic"> Our Ongoing Deals</h3>
         </div>
         <Product_List />
         <div>
-          <h3 className="bg-text sub-topic" > Our Team</h3>
+          <h3 className="bg-text sub-topic"> Our Team</h3>
         </div>
         <div>
           <div className="row">
@@ -197,10 +197,8 @@ const Home = () => {
         profileAvatar={logo}
         emojis="true"
       />
-
     </>
-  )
-}
-
+  );
+};
 
 export default Home;
