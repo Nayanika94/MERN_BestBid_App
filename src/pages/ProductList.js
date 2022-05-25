@@ -28,7 +28,7 @@ const styles = {
   button: {},
 };
 
-export const Product_List = () => {
+export const ProductList = () => {
 
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -119,4 +119,4 @@ const Product = (prod) => {
   );
 };
 
-export default Product_List;
+export default ProductList;

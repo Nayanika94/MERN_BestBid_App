@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button, Row, Col, Tabs, Tab, Table } from "react-bootstrap";
-import image1 from "../assets/image1.jpg";
+
 import decode from "jwt-decode";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ const Profile = () => {
   const [bids, setBids] = useState([]);
 
   let decodeddata = decode(localStorage.getItem("token"));
-  let imagepath = decodeddata.user.profileImage;
+
   useEffect(() => {
     sendGetRequest();
   }, []);
@@ -33,14 +33,14 @@ const Profile = () => {
 
       const response1 = await axios.get(
         process.env.REACT_APP_API_URL +
-          `/api/productsSold/${decodeddata.user.id}`,
+        `/api/productsSold/${decodeddata.user.id}`,
         config
       );
       setProducts(response1.data);
 
       const response2 = await axios.get(
         process.env.REACT_APP_API_URL +
-          `/api/bid/byUser/${decodeddata.user.id}`,
+        `/api/bid/byUser/${decodeddata.user.id}`,
         config
       );
       setBids(response2.data);

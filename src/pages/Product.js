@@ -99,7 +99,7 @@ const Product = (props) => {
         process.env.REACT_APP_API_URL + `/api/bid/onProduct/${id}`,
         config
       );
-      if (response1.data != "") {
+      if (response1.data !== "") {
         setBid(response1.data);
         setBidMessage(
           "Last bid " +
@@ -135,7 +135,7 @@ const Product = (props) => {
         data,
         config
       );
-      if (response.status == 200) {
+      if (response.status === 200) {
         window.location.reload(false);
         console.log(response);
       }
@@ -185,12 +185,12 @@ const Product = (props) => {
                       value={price}
                       onChange={(event) => setPrice(event.target.value)}
                       aria-label="Amount (to the nearest dollar)"
-                      placeholder={`Min C$${bid != ""
+                      placeholder={`Min C$${bid !== ""
                         ? parseInt(bid.bid) + 50
                         : parseInt(product.price) + 50
                         }.00`}
                       min={
-                        bid != ""
+                        bid !== ""
                           ? parseInt(bid.bid) + 50
                           : parseInt(product.price) + 50
                       }

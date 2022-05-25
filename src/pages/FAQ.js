@@ -65,7 +65,7 @@ const FAQ = () => {
                       enhance them. With a rich history all over the world, we
                       understand that traditional live auctions are already an
                       important sales strategy for your business. But that
-                      doesn’t mean it can’t be improved. Adding an online
+                      doesn't mean it can't be improved. Adding an online
                       channel will simply broaden your existing buyer market and
                       encourage more bidders to compete on the day.
                     </Card.Body>
@@ -80,12 +80,12 @@ const FAQ = () => {
                   <Accordion.Collapse eventKey="3">
                     <Card.Body>
                       We believe that delays must be kept to an absolute minimum
-                      – which is why we’ve spent so many years testing and
+                      - which is why we've spent so many years testing and
                       refining our infrastructure and webcast technologies. Our
                       streaming platform is one of the fastest on the market.
                       With a good working internet speed, any delay that might
                       occur (if any) lasts no more than a third of a second. And
-                      that’s quick. In fact, it feels almost instantaneous. This
+                      that's quick. In fact, it feels almost instantaneous. This
                       means your online bidders are in no way disadvantaged when
                       competing with onsite bidders.
                     </Card.Body>
@@ -103,8 +103,8 @@ const FAQ = () => {
                       After bidders have been approved to bid at your online
                       auction, they need to login via your website online
                       auction page. Then once the auction starts, they can make
-                      bids based on the auctioneer’s direction by simply
-                      clicking the ‘Bid’ button. Online bidders will be able to
+                      bids based on the auctioneer's direction by simply
+                      clicking the 'Bid' button. Online bidders will be able to
                       view all onsite and online bids in real time on the bidder
                       dashboard.
                     </Card.Body>

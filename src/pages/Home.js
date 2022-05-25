@@ -4,7 +4,7 @@ import "react-chat-widget/lib/styles.css";
 import { io } from 'socket.io-client';
 import "../App";
 import logo from '../logo.svg';
-import Product_List from "./Product_List";
+import ProductList from "./ProductList";
 
 const socket = io('http://localhost:5000');
 
@@ -40,7 +40,7 @@ const Home = () => {
           <h3 className="bg-text sub-topic" > Our Ongoing Deals</h3>
         </div>
 
-        <Product_List />
+        <ProductList />
         <div>
           <h3 className="bg-text sub-topic" > Our Team</h3>
         </div>

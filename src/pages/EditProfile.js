@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, Button, Row, Col, Modal } from "react-bootstrap";
 import axios from "axios";
-import decode from "jwt-decode";
-import AuthContext from "../context/AuthContext";
 
-const Edit_Profile = () => {
+
+const EditProfile = () => {
   const [profile, setProfile] = useState({
     name: "",
     email: "",
     phone: "",
     address: "",
   });
-  const auth = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const onChange = (e) => {
@@ -24,7 +23,7 @@ const Edit_Profile = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  let decodeddata = decode(localStorage.getItem("token"));
+
   useEffect(() => {
     sendGetRequest();
   }, []);
@@ -40,7 +39,7 @@ const Edit_Profile = () => {
       },
     };
     try {
-      const response = await axios.put(
+      await axios.put(
         process.env.REACT_APP_API_URL + "/api/user",
         profile,
         config
@@ -99,7 +98,7 @@ const Edit_Profile = () => {
           "x-auth-token": token,
         },
       };
-      const response = await axios.post(
+      await axios.post(
         process.env.REACT_APP_API_URL + "/api/user/uploadPicture",
         config,
         data
@@ -130,8 +129,8 @@ const Edit_Profile = () => {
               </button>
             </form>
             <div className="imgPreview">
-              {imgData != "" ? (
-                <img className="profilePreview" src={imgData} />
+              {imgData !== "" ? (
+                <img className="profilePreview" src={imgData} alt=" " />
               ) : (
                 <div className="previewText">
                   Please select an Image for Preview
@@ -232,4 +231,4 @@ const Edit_Profile = () => {
   );
 };
 
-export default Edit_Profile;
+export default EditProfile;

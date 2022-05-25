@@ -16,9 +16,8 @@ import Profile from "./pages/Profile";
 import Payment from "./pages/Payment";
 import Footer from "./components/Footer";
 import Thankyou from "./pages/Thankyou";
-import Product_List from "./pages/Product_List";
+import ProductList from "./pages/ProductList";
 import Edit_Profile from "./pages/Edit_Profile";
-import io from "socket.io-client";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
 import { HowDoesitWork } from "./pages/HowDoesitWork";
@@ -45,7 +44,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/product/:id" element={<Product />} />
-        <Route exact path="/product" element={<Product_List />} />
+        <Route exact path="/product" element={<ProductList />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/faq" element={<FAQ />} />
         <Route exact path="/contact" element={<Contact />} />
@@ -64,7 +63,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/product/:id" element={<Product />} />
-        <Route exact path="/product" element={<Product_List />} />
+        <Route exact path="/product" element={<ProductList />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/faq" element={<FAQ />} />
         <Route exact path="/contact" element={<Contact />} />

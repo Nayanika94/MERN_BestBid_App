@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Widget } from "react-chat-widget";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const [status, setStatus] = useState("Submit");

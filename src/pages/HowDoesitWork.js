@@ -46,16 +46,16 @@ export const HowDoesitWork = () => (
                 <h3>1. Create Your Free LiveAuctioneers Account</h3>
                 <p>
                   Signing up for your free LiveAuctioneers account is easy and
-                  secure. Once you’ve completed your profile on LiveAuctioneers,
+                  secure. Once you've completed your profile on LiveAuctioneers,
                   you can begin participating in online auctions, saving items and
-                  following searches. (Note: your information is private and
+                  following searches. Note: your information is private and
                   secure. Any credit card information added to your
                   LiveAuctioneers account will not be shared with auction houses.
                 </p>
                 <h3>2. Go to product list</h3>
                 <p>
-                  Looking for something specific? Type what you’re looking for in
-                  the search bar and click ‘Follow Search’ to be notified whenever
+                  Looking for something specific? Type what you're looking for in
+                  the search bar and click 'Follow Search' to be notified whenever
                   new items matching your criteria are added to LiveAuctioneers.
                   You can manage your followed searches from your dashboard and in
                   the LiveAuctioneers apps for iOS and Android.
@@ -74,12 +74,12 @@ export const HowDoesitWork = () => (
               <div className="col-md-6">
                 <h3>3. Register for Auctions</h3>
                 <p>To actively bid in an auction on LiveAuctioneers, you must
-                  register first by clicking ‘Register for Auction’ on catalog and
+                  register first by clicking 'Register for Auction' on catalog and
                   item pages. You may also place absentee bids in advance of the
-                  auction time, which doubles as registration requests if you’re
+                  auction time, which doubles as registration requests if you're
                   not already approved. Most auction houses approve registrations
                   within 24 hours. Every auction house has different criteria for
-                  approval, so it’s best to register early in case they require
+                  approval, so it's best to register early in case they require
                   additional information from you. Once approved, any absentee
                   bids you may have placed will be active.
                 </p>
@@ -88,7 +88,7 @@ export const HowDoesitWork = () => (
                   Each auction house handles shipping and payment differently, so
                   before you bid, be sure to review shipping and payment policies
                   to avoid any surprises. Also be sure to take note of the
-                  auction’s live bidding start time. This is when live bidding
+                  auction's live bidding start time. This is when live bidding
                   begins, starting with the first lot in the auction.
                 </p>
               </div>
