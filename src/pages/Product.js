@@ -66,7 +66,7 @@ const styles = {
   },
 };
 
-const Product = (props) => {
+const Product = () => {
   let { id } = useParams();
   const [product, setProduct] = useState([]);
   const [bid, setBid] = useState([]);
@@ -99,7 +99,8 @@ const Product = (props) => {
         process.env.REACT_APP_API_URL + `/api/bid/onProduct/${id}`,
         config
       );
-      if (response1.data !== "") {
+
+      if (response1.data) {
         setBid(response1.data);
         setBidMessage(
           "Last bid " +
@@ -162,7 +163,7 @@ const Product = (props) => {
                 alt={product.id}
               />
             </div>
-            <div class="vr"></div>
+            <div className="vr"></div>
             <div className="flex-grow-1 m-2 p-1">
               <div className="d-flex flex-column">
                 <div className="title">
@@ -174,7 +175,7 @@ const Product = (props) => {
                 </div>
                 <h4>C${product.price}</h4>
                 {bidMessage && <p>{bidMessage}</p>}
-                <form class="m-3 w-50" onSubmit={(e) => onSubmit(e)}>
+                <form className="m-3 w-50" onSubmit={(e) => onSubmit(e)}>
                   <div className="input-group mb-3">
                     <div className="input-group-prepend">
                       <span className="input-group-text">$</span>
@@ -185,12 +186,12 @@ const Product = (props) => {
                       value={price}
                       onChange={(event) => setPrice(event.target.value)}
                       aria-label="Amount (to the nearest dollar)"
-                      placeholder={`Min C$${bid !== ""
+                      placeholder={`Min C$${bid
                         ? parseInt(bid.bid) + 50
                         : parseInt(product.price) + 50
                         }.00`}
                       min={
-                        bid !== ""
+                        bid
                           ? parseInt(bid.bid) + 50
                           : parseInt(product.price) + 50
                       }

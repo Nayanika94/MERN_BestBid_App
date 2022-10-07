@@ -49,7 +49,7 @@ const Profile = () => {
     }
   };
   return (
-    <div class="container mt-2 mb-2">
+    <div className="container mt-2 mb-2">
       <Row className="g-4">
         <Col sm={3}>
           <Card>

@@ -18,10 +18,10 @@ const Feedback = () => {
     navigate("/thankyou");
   }
   return (
-    <div class="d-flex justify-content-center">
+    <div className="d-flex justify-content-center">
       <h3>Feedback</h3>
 
-      <form class="m-5 w-50" onSubmit={handleSubmit}>
+      <form className="m-5 w-50" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>
           <input

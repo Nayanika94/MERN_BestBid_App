@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
 import AuthContext from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+
 
 const Styles = styled.div`
   .navbar {

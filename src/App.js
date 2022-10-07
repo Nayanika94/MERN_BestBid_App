@@ -17,7 +17,7 @@ import Payment from "./pages/Payment";
 import Footer from "./components/Footer";
 import Thankyou from "./pages/Thankyou";
 import ProductList from "./pages/ProductList";
-import Edit_Profile from "./pages/Edit_Profile";
+import EditProfile from "./pages/EditProfile";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
 import { HowDoesitWork } from "./pages/HowDoesitWork";
@@ -53,7 +53,7 @@ const App = () => {
         <Route exact path="/event" element={<Events />} />
         <Route exact path="/thankyou" element={<Thankyou />} />
         <Route exact path="/feedback" element={<Feedback />} />
-        <Route exact path="/edit-profile" element={<Edit_Profile />} />
+        <Route exact path="/edit-profile" element={<EditProfile />} />
         <Route exact path="HowDoesitWork" element={<HowDoesitWork />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>

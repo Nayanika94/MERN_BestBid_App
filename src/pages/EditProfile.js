@@ -155,7 +155,7 @@ const EditProfile = () => {
         </Col>
         <Col sm={9}>
           <Card className="mb-2">
-            <form class="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
+            <form className="m-5 w-50" onSubmit={(e) => onSubmit(e)}>
               <Card.Body>
                 <Row>
                   <Col sm={4}>Full Name</Col>
